@@ -1,0 +1,13 @@
+{
+  "name": "bt-web",
+  "version": "1.0.0",
+  "description": "Baby Tracker landing page for email verification and password reset",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx serve public",
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["baby-tracker", "landing-page", "deep-linking"],
+  "author": "Baby Tracker Team",
+  "license": "ISC"
+}
