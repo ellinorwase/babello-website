@@ -13,12 +13,12 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #9333ea 100%);
+            background: #000000;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #333;
+            color: #ffffff;
             position: relative;
         }
 
@@ -28,7 +28,7 @@
             right: 20px;
             display: flex;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: 8px;
             border-radius: 12px;
@@ -38,42 +38,46 @@
             padding: 8px 16px;
             border: none;
             background: transparent;
-            color: white;
+            color: rgba(255, 255, 255, 0.6);
             cursor: pointer;
             border-radius: 8px;
             font-weight: 600;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
 
         .lang-btn.active {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
         }
 
         .container {
-            background: white;
+            background: #1a1a1a;
             border-radius: 24px;
             padding: 48px;
             max-width: 480px;
             margin: 20px;
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .logo {
             width: 96px;
             height: 96px;
-            background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
-            border-radius: 24px;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
-            box-shadow: 0 8px 24px rgba(147, 51, 234, 0.3);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
         }
 
         h1 {
@@ -84,7 +88,7 @@
         }
 
         .subtitle {
-            color: #6b7280;
+            color: #9ca3af;
             line-height: 1.6;
             margin-bottom: 32px;
             font-size: 16px;
@@ -98,22 +102,22 @@
         .feature {
             display: flex;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             padding: 16px;
-            background: #f9fafb;
+            background: #2a2a2a;
             border-radius: 16px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, background 0.2s;
         }
 
         .feature:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #333333;
         }
 
         .feature-icon {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+            background: #9333ea;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -123,20 +127,26 @@
             flex-shrink: 0;
         }
 
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
         .feature-text {
             flex: 1;
         }
 
         .feature-title {
             font-weight: 600;
-            color: #1f2937;
+            color: #ffffff;
             margin-bottom: 4px;
             font-size: 16px;
         }
 
         .feature-desc {
             font-size: 14px;
-            color: #6b7280;
+            color: #9ca3af;
             margin: 0;
             line-height: 1.4;
         }
@@ -150,30 +160,27 @@
         .btn {
             display: inline-block;
             padding: 16px 32px;
-            background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+            background: #9333ea;
             color: white;
             text-decoration: none;
             border-radius: 16px;
             font-weight: 600;
             font-size: 16px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 16px rgba(147, 51, 234, 0.3);
+            transition: transform 0.2s, background 0.2s;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(147, 51, 234, 0.4);
+            background: #a855f7;
         }
 
         .btn-secondary {
-            background: #f3f4f6;
-            color: #374151;
-            box-shadow: none;
+            background: #2a2a2a;
+            color: #ffffff;
         }
 
         .btn-secondary:hover {
-            background: #e5e7eb;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #333333;
         }
 
         [data-lang] {
@@ -200,7 +207,9 @@
     </div>
 
     <div class="container">
-        <div class="logo">👶</div>
+        <div class="logo">
+            <img src="icon.png" alt="Babello">
+        </div>
         <h1>Babello</h1>
 
         <p class="subtitle" data-lang="sv">Den ultimata appen för att följa ditt barns utveckling, sömn, mat och hälsa.</p>
@@ -208,7 +217,9 @@
 
         <div class="features">
             <div class="feature">
-                <div class="feature-icon">📊</div>
+                <div class="feature-icon">
+                    <svg><use href="icons.svg#icon-growth"></use></svg>
+                </div>
                 <div class="feature-text">
                     <div class="feature-title" data-lang="sv">Följ tillväxt</div>
                     <div class="feature-title" data-lang="en">Track Growth</div>
@@ -218,7 +229,9 @@
             </div>
 
             <div class="feature">
-                <div class="feature-icon">😴</div>
+                <div class="feature-icon">
+                    <svg><use href="icons.svg#icon-sleep"></use></svg>
+                </div>
                 <div class="feature-text">
                     <div class="feature-title" data-lang="sv">Sömnlogg</div>
                     <div class="feature-title" data-lang="en">Sleep Log</div>
@@ -228,7 +241,9 @@
             </div>
 
             <div class="feature">
-                <div class="feature-icon">🍼</div>
+                <div class="feature-icon">
+                    <svg><use href="icons.svg#icon-heart"></use></svg>
+                </div>
                 <div class="feature-text">
                     <div class="feature-title" data-lang="sv">Matning & Blöjor</div>
                     <div class="feature-title" data-lang="en">Feeding & Diapers</div>
@@ -238,7 +253,9 @@
             </div>
 
             <div class="feature">
-                <div class="feature-icon">📅</div>
+                <div class="feature-icon">
+                    <svg><use href="icons.svg#icon-calendar"></use></svg>
+                </div>
                 <div class="feature-text">
                     <div class="feature-title" data-lang="sv">Kalender</div>
                     <div class="feature-title" data-lang="en">Calendar</div>
