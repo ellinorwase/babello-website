@@ -13,105 +13,114 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #9333ea 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #333;
+            position: relative;
+        }
+
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px;
+            border-radius: 12px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .container {
             background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 480px;
             margin: 20px;
             text-align: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
-            background: #9333ea;
-            border-radius: 20px;
+            width: 96px;
+            height: 96px;
+            background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+            border-radius: 24px;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
+            font-size: 48px;
+            box-shadow: 0 8px 24px rgba(147, 51, 234, 0.3);
         }
 
         h1 {
             color: #9333ea;
-            margin-bottom: 16px;
-            font-size: 32px;
+            margin-bottom: 12px;
+            font-size: 36px;
+            font-weight: 700;
         }
 
-        p {
-            color: #666;
+        .subtitle {
+            color: #6b7280;
             line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .download-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            background: #9333ea;
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
-        }
-
-        .btn-secondary {
-            background: #f3f4f6;
-            color: #333;
-        }
-
-        .btn-secondary:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 32px;
+            font-size: 16px;
         }
 
         .features {
-            margin-top: 40px;
             text-align: left;
+            margin-bottom: 32px;
         }
 
         .feature {
             display: flex;
             align-items: center;
             margin-bottom: 16px;
-            padding: 12px;
+            padding: 16px;
             background: #f9fafb;
-            border-radius: 10px;
+            border-radius: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .feature-icon {
-            width: 40px;
-            height: 40px;
-            background: #9333ea;
-            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 12px;
-            color: white;
-            font-size: 20px;
+            margin-right: 16px;
+            font-size: 24px;
+            flex-shrink: 0;
         }
 
         .feature-text {
@@ -120,61 +129,153 @@
 
         .feature-title {
             font-weight: 600;
-            color: #333;
+            color: #1f2937;
             margin-bottom: 4px;
+            font-size: 16px;
         }
 
         .feature-desc {
             font-size: 14px;
-            color: #666;
+            color: #6b7280;
             margin: 0;
+            line-height: 1.4;
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(147, 51, 234, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(147, 51, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        [data-lang="sv"] {
+            display: block;
+        }
+
+        body.lang-en [data-lang="sv"] {
+            display: none;
+        }
+
+        body.lang-en [data-lang="en"] {
+            display: block;
         }
     </style>
 </head>
 <body>
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('sv')">Svenska</button>
+        <button class="lang-btn" onclick="setLanguage('en')">English</button>
+    </div>
+
     <div class="container">
         <div class="logo">👶</div>
         <h1>Babello</h1>
-        <p>Den ultimata appen för att följa ditt barns utveckling, sömn, mat och hälsa.</p>
+
+        <p class="subtitle" data-lang="sv">Den ultimata appen för att följa ditt barns utveckling, sömn, mat och hälsa.</p>
+        <p class="subtitle" data-lang="en">The ultimate app to track your baby's development, sleep, feeding, and health.</p>
 
         <div class="features">
             <div class="feature">
                 <div class="feature-icon">📊</div>
                 <div class="feature-text">
-                    <div class="feature-title">Följ tillväxt</div>
-                    <div class="feature-desc">Spåra längd, vikt och huvudomfång</div>
+                    <div class="feature-title" data-lang="sv">Följ tillväxt</div>
+                    <div class="feature-title" data-lang="en">Track Growth</div>
+                    <div class="feature-desc" data-lang="sv">Spåra längd, vikt och huvudomfång</div>
+                    <div class="feature-desc" data-lang="en">Track height, weight, and head circumference</div>
                 </div>
             </div>
 
             <div class="feature">
                 <div class="feature-icon">😴</div>
                 <div class="feature-text">
-                    <div class="feature-title">Sömnlogg</div>
-                    <div class="feature-desc">Håll koll på sömnmönster och tupplurer</div>
+                    <div class="feature-title" data-lang="sv">Sömnlogg</div>
+                    <div class="feature-title" data-lang="en">Sleep Log</div>
+                    <div class="feature-desc" data-lang="sv">Håll koll på sömnmönster och tupplurer</div>
+                    <div class="feature-desc" data-lang="en">Keep track of sleep patterns and naps</div>
                 </div>
             </div>
 
             <div class="feature">
                 <div class="feature-icon">🍼</div>
                 <div class="feature-text">
-                    <div class="feature-title">Matning & Blöjor</div>
-                    <div class="feature-desc">Logga amning, flaska och blöjbyten</div>
+                    <div class="feature-title" data-lang="sv">Matning & Blöjor</div>
+                    <div class="feature-title" data-lang="en">Feeding & Diapers</div>
+                    <div class="feature-desc" data-lang="sv">Logga amning, flaska och blöjbyten</div>
+                    <div class="feature-desc" data-lang="en">Log breastfeeding, bottles, and diaper changes</div>
                 </div>
             </div>
 
             <div class="feature">
                 <div class="feature-icon">📅</div>
                 <div class="feature-text">
-                    <div class="feature-title">Kalender</div>
-                    <div class="feature-desc">BVC-besök, vaccinationer och möten</div>
+                    <div class="feature-title" data-lang="sv">Kalender</div>
+                    <div class="feature-title" data-lang="en">Calendar</div>
+                    <div class="feature-desc" data-lang="sv">BVC-besök, vaccinationer och möten</div>
+                    <div class="feature-desc" data-lang="en">Doctor visits, vaccinations, and appointments</div>
                 </div>
             </div>
         </div>
 
         <div class="download-buttons">
-            <a href="#" class="btn">Ladda ner för iOS</a>
-            <a href="mailto:support@babelloapp.se" class="btn btn-secondary">Kontakta oss</a>
+            <a href="#" class="btn" data-lang="sv">Ladda ner för iOS</a>
+            <a href="#" class="btn" data-lang="en">Download for iOS</a>
+            <a href="mailto:support@babelloapp.se" class="btn btn-secondary" data-lang="sv">Kontakta oss</a>
+            <a href="mailto:support@babelloapp.se" class="btn btn-secondary" data-lang="en">Contact Us</a>
         </div>
     </div>
+
+    <script>
+        function setLanguage(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.lang-btn');
+
+            body.className = 'lang-' + lang;
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            localStorage.setItem('language', lang);
+        }
+
+        // Load saved language
+        const savedLang = localStorage.getItem('language') || 'sv';
+        if (savedLang === 'en') {
+            document.body.classList.add('lang-en');
+            document.querySelectorAll('.lang-btn')[1].classList.add('active');
+            document.querySelectorAll('.lang-btn')[0].classList.remove('active');
+        }
+    </script>
 </body>
 </html>
