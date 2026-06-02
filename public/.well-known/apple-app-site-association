@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "babytrackerchrielli.com.ellinorwase.babello",
+        "paths": [
+          "/invite/*"
+        ]
+      }
+    ]
+  }
+}
