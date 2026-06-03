@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integritetspolicy - Babello</title>
+    <meta name="description" content="GDPR-kompatibel integritetspolicy för Babello - hur vi samlar in, använder och skyddar dina personuppgifter.">
     <style>
         * {
             margin: 0;
@@ -15,7 +16,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
             background: #f9fafb;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .header {
@@ -32,43 +33,141 @@
 
         .header p {
             opacity: 0.9;
+            font-size: 14px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 20px 80px;
             background: white;
             margin-top: -20px;
             border-radius: 20px 20px 0 0;
         }
 
+        .update-date {
+            color: #999;
+            font-style: italic;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .toc {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 32px 0;
+        }
+
+        .toc h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #9333ea;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
         h2 {
             color: #9333ea;
-            margin-top: 32px;
+            margin-top: 48px;
             margin-bottom: 16px;
-            font-size: 24px;
+            font-size: 26px;
+            padding-top: 16px;
+            border-top: 2px solid #eee;
+        }
+
+        h2:first-of-type {
+            margin-top: 24px;
+            border-top: none;
         }
 
         h3 {
             color: #333;
             margin-top: 24px;
             margin-bottom: 12px;
-            font-size: 18px;
+            font-size: 20px;
         }
 
-        p, li {
-            margin-bottom: 12px;
+        h4 {
+            color: #555;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 16px;
             color: #555;
         }
 
-        ul {
+        ul, ol {
             margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        strong {
+            color: #333;
+        }
+
+        a {
+            color: #9333ea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+
+        .success-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 16px;
+            margin: 24px 0;
+            border-radius: 8px;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 32px;
+            margin-top: 48px;
             padding: 12px 24px;
             background: #9333ea;
             color: white;
@@ -81,140 +180,275 @@
             transform: translateY(-2px);
         }
 
-        .update-date {
-            color: #999;
-            font-style: italic;
-            margin-bottom: 24px;
+        .contact-info {
+            background: #f9fafb;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 32px 0;
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Integritetspolicy</h1>
-        <p>Babello</p>
+        <p>Babello - GDPR-kompatibel integritetspolicy</p>
     </div>
 
     <div class="container">
-        <p class="update-date">Senast uppdaterad: 23 maj 2026</p>
+        <p class="update-date">Senast uppdaterad: 3 juni 2026</p>
 
-        <p>Välkommen till Babello! Din integritet är viktig för oss. Denna integritetspolicy beskriver hur vi samlar in, använder och skyddar din personliga information när du använder vår app.</p>
+        <div class="highlight-box">
+            <strong>Viktigt:</strong> Denna integritetspolicy är utformad för att följa GDPR (EU:s dataskyddsförordning 2016/679) och svensk dataskyddslagstiftning. Du har full kontroll över dina personuppgifter och kan när som helst utöva dina rättigheter.
+        </div>
 
-        <h2>1. Information Vi Samlar In</h2>
+        <h2>1. Introduktion</h2>
+        <p>Välkommen till Babello. Vi värnar om din integritet och är dedikerade till att skydda dina personuppgifter. Denna integritetspolicy beskriver hur vi samlar in, använder, lagrar och skyddar dina personuppgifter när du använder vår mobilapplikation och tjänster.</p>
 
-        <h3>1.1 Kontoinformation</h3>
-        <p>När du skapar ett konto samlar vi in:</p>
+        <p><strong>Personuppgiftsansvarig:</strong></p>
         <ul>
-            <li>E-postadress</li>
-            <li>Förnamn och efternamn</li>
-            <li>Lösenord (krypterat)</li>
+            <li>Babello</li>
+            <li>E-post: <a href="mailto:babellosupport@gmail.com">babellosupport@gmail.com</a></li>
+            <li>Webbplats: <a href="https://babelloapp.se">https://babelloapp.se</a></li>
         </ul>
 
-        <h3>1.2 Barnets Information</h3>
-        <p>För att tillhandahålla tjänsten samlar vi in information om ditt barn:</p>
+        <h2>2. Personuppgifter vi samlar in</h2>
+
+        <h3>2.1 Information du tillhandahåller direkt</h3>
         <ul>
-            <li>Barnets namn</li>
-            <li>Födelsedatum</li>
-            <li>Kön (valfritt)</li>
+            <li><strong>Kontoinformation:</strong> E-postadress, namn, lösenord (krypterat)</li>
+            <li><strong>Barninformation:</strong> Barnets namn, födelsedatum, kön, profilbild (valfritt)</li>
+            <li><strong>Aktivitetsdata:</strong> Sömnmönster, matning, blöjbyten, lektider, tillväxtmätningar, mediciner, temperaturer</li>
+            <li><strong>Familjedata:</strong> Information om familjemedlemmar du delar åtkomst med</li>
+            <li><strong>Kommunikation:</strong> Meddelanden du skickar till vår support</li>
         </ul>
 
-        <h3>1.3 Aktivitetsdata</h3>
-        <p>Information du loggar i appen:</p>
+        <h3>2.2 Information som samlas in automatiskt</h3>
         <ul>
-            <li>Sömnmönster och sovtider</li>
-            <li>Matningar (amning, flaska)</li>
-            <li>Blöjbyten</li>
-            <li>Tillväxtmätningar (längd, vikt, huvudomfång)</li>
-            <li>Kalenderhändelser och anteckningar</li>
+            <li><strong>Användningsdata:</strong> Hur du interagerar med appen, vilka funktioner du använder</li>
+            <li><strong>Enhetsdata:</strong> Enhetstyp, operativsystem, unik enhetsidentifierare</li>
+            <li><strong>Teknisk data:</strong> IP-adress, webbläsartyp, tidszon, språkinställningar</li>
+            <li><strong>Felsökningsdata:</strong> Kraschrapporter och tekniska felloggar</li>
         </ul>
 
-        <h2>2. Hur Vi Använder Din Information</h2>
-
-        <p>Vi använder din information för att:</p>
+        <h3>2.3 Information från tredje part</h3>
         <ul>
-            <li>Tillhandahålla och förbättra tjänsten</li>
-            <li>Synkronisera data mellan dina enheter</li>
-            <li>Möjliggöra familjehantering (delning med partner)</li>
-            <li>Skicka viktiga meddelanden om ditt konto</li>
+            <li><strong>Betalningstjänster:</strong> Stripe hanterar betalningar och vi tar emot betalningsstatus (ej fullständiga kortuppgifter)</li>
+        </ul>
+
+        <h2>3. Hur vi använder dina personuppgifter</h2>
+
+        <h3>3.1 Tillhandahålla tjänsten (Rättslig grund: Fullgörande av avtal)</h3>
+        <ul>
+            <li>Skapa och hantera ditt konto</li>
+            <li>Spara och synkronisera barnets aktivitetsdata</li>
+            <li>Möjliggöra familjeåtkomst och realtidssynkronisering</li>
+            <li>Tillhandahålla tillväxtspårning och statistik</li>
+        </ul>
+
+        <h3>3.2 Betalningshantering (Rättslig grund: Fullgörande av avtal)</h3>
+        <ul>
             <li>Hantera prenumerationer och betalningar</li>
-            <li>Tillhandahålla kundsupport</li>
+            <li>Tillhandahålla premium-funktioner</li>
+            <li>Skicka kvitton och fakturor</li>
         </ul>
 
-        <h2>3. Datadelning och Sekretess</h2>
-
-        <h3>3.1 Vi Delar INTE Din Data</h3>
-        <p>Vi säljer eller delar aldrig dina personuppgifter med tredje part för marknadsföringsändamål.</p>
-
-        <h3>3.2 Familjehantering</h3>
-        <p>Om du väljer att dela tillgång till ett barns profil med en annan användare (t.ex. din partner), kommer den personen att kunna se och redigera data för det barnet.</p>
-
-        <h3>3.3 Tjänsteleverantörer</h3>
-        <p>Vi använder betrodda tredjepartstjänster för:</p>
+        <h3>3.3 Kommunikation (Rättslig grund: Fullgörande av avtal och berättigat intresse)</h3>
         <ul>
-            <li>Databaslagring (Railway)</li>
-            <li>E-posttjänster (Resend)</li>
-            <li>Betalningshantering (Stripe)</li>
+            <li>Skicka verifieringsmejl</li>
+            <li>Skicka viktiga tjänstemeddelanden</li>
+            <li>Svara på dina supportförfrågningar</li>
+            <li>Skicka påminnelser om prenumeration</li>
         </ul>
-        <p>Dessa tjänster har strikt sekretess och använder endast data för att tillhandahålla tjänsten.</p>
 
-        <h2>4. Datasäkerhet</h2>
+        <h2>4. Delning av personuppgifter</h2>
 
-        <p>Vi skyddar din data genom:</p>
+        <div class="success-box">
+            <strong>Vi säljer aldrig dina personuppgifter.</strong> Vi delar endast data i följande situationer:
+        </div>
+
+        <h3>4.1 Med familjemedlemmar du har bjudit in</h3>
         <ul>
-            <li>Krypterad överföring (HTTPS/WSS)</li>
-            <li>Säker databaslagring</li>
-            <li>Hashade lösenord (bcrypt)</li>
-            <li>Regelbundna säkerhetsuppdateringar</li>
-            <li>Begränsad åtkomst till personuppgifter</li>
+            <li>Barnets aktivitetsdata delas med familjemedlemmar som du uttryckligen har bjudit in</li>
+            <li>Familjemedlemmar kan se och lägga till aktiviteter för delade barn</li>
+            <li>Du kan när som helst återkalla åtkomst</li>
         </ul>
 
-        <h2>5. Dina Rättigheter (GDPR)</h2>
-
-        <p>Enligt GDPR har du rätt att:</p>
+        <h3>4.2 Med tjänsteleverantörer</h3>
         <ul>
-            <li><strong>Få tillgång</strong> till dina personuppgifter</li>
-            <li><strong>Rätta</strong> felaktig information</li>
-            <li><strong>Radera</strong> ditt konto och all data</li>
-            <li><strong>Exportera</strong> dina data</li>
-            <li><strong>Invända</strong> mot behandling av dina uppgifter</li>
-            <li><strong>Begränsa</strong> behandling av dina uppgifter</li>
+            <li><strong>Railway:</strong> Hosting av backend och databas (USA) - GDPR-kompatibelt</li>
+            <li><strong>Stripe:</strong> Betalningshantering (USA/EU) - GDPR-kompatibelt</li>
+            <li><strong>Cloudinary:</strong> Bildlagring för profilbilder (EU-servrar) - GDPR-kompatibelt</li>
+            <li><strong>Resend:</strong> E-posttjänst för verifikation och meddelanden (EU-servrar) - GDPR-kompatibelt</li>
         </ul>
+        <p>Alla tjänsteleverantörer är noggrant utvalda och har undertecknat databehandlingsavtal (DPA) samt följer GDPR.</p>
 
-        <h2>6. Datalagring</h2>
-
-        <p><strong>Gratis användare:</strong> Aktivitetsdata lagras i 30 dagar. Äldre data arkiveras men är inte tillgänglig i appen.</p>
-        <p><strong>Premium-användare:</strong> All data lagras obegränsat så länge ditt konto är aktivt.</p>
-        <p><strong>Efter radering:</strong> När du raderar ditt konto tas alla dina personuppgifter och barndata bort permanent inom 30 dagar.</p>
-
-        <h2>7. Barnens Integritet</h2>
-
-        <p>Babello är designad för föräldrar att spåra information om sina barn. Vi samlar inte in information direkt från barn under 13 år. Föräldern ansvarar för all data som läggs till i appen.</p>
-
-        <h2>8. Cookies och Spårning</h2>
-
-        <p>Vi använder minimal spårning:</p>
+        <h2>5. Dataöverföring utanför EU</h2>
+        <p>Vissa av våra tjänsteleverantörer (Railway, Stripe) är baserade i USA. Dataöverföring till USA sker med följande skyddsåtgärder:</p>
         <ul>
-            <li>Autentiseringscookies för att hålla dig inloggad</li>
-            <li>Inga reklamspårare</li>
-            <li>Inga analysspårare från tredje part</li>
+            <li><strong>EU-US Data Privacy Framework:</strong> Stripe och Railway följer EU-US Data Privacy Framework</li>
+            <li><strong>Standard Contractual Clauses (SCC):</strong> Vi har ingått EU:s standardavtalsklausuler</li>
+            <li><strong>Tekniska säkerhetsåtgärder:</strong> All data krypteras vid överföring och lagring</li>
         </ul>
 
-        <h2>9. Ändringar i Integritetspolicyn</h2>
+        <h2>6. Hur länge vi lagrar dina data</h2>
+        <ul>
+            <li><strong>Kontodata:</strong> Så länge ditt konto är aktivt</li>
+            <li><strong>Aktivitetsdata:</strong> Tills du raderar dem eller avslutar ditt konto</li>
+            <li><strong>Betalningshistorik:</strong> 7 år (enligt svensk bokföringslag)</li>
+            <li><strong>Supportärenden:</strong> 2 år efter ärendet stängts</li>
+            <li><strong>Kraschloggar:</strong> 90 dagar</li>
+        </ul>
+        <p>När du raderar ditt konto raderas alla dina personuppgifter inom 30 dagar, med undantag för betalningshistorik som måste sparas enligt lag.</p>
 
-        <p>Vi kan uppdatera denna policy vid behov. Väsentliga ändringar kommer att meddelas via e-post. Senaste uppdateringsdatum visas högst upp på denna sida.</p>
+        <h2>7. Dina rättigheter enligt GDPR</h2>
 
-        <h2>10. Kontakta Oss</h2>
+        <div class="info-box">
+            <strong>Du har full kontroll över dina personuppgifter.</strong> Nedan beskrivs alla dina rättigheter enligt GDPR.
+        </div>
 
-        <p>Om du har frågor om denna integritetspolicy eller vill utöva dina rättigheter, kontakta oss på:</p>
-        <p><strong>E-post:</strong> <a href="mailto:privacy@babelloapp.se">privacy@babelloapp.se</a></p>
-        <p><strong>Support:</strong> <a href="mailto:support@babelloapp.se">support@babelloapp.se</a></p>
+        <h3>7.1 Rätt till tillgång (Artikel 15)</h3>
+        <ul>
+            <li>Få en kopia av alla personuppgifter vi har om dig</li>
+            <li>Se hur vi använder dina data</li>
+        </ul>
 
-        <h2>11. Juridisk Information</h2>
+        <h3>7.2 Rätt till rättelse (Artikel 16)</h3>
+        <ul>
+            <li>Korrigera felaktiga eller ofullständiga uppgifter</li>
+            <li>Uppdatera din information i appen under Inställningar</li>
+        </ul>
 
-        <p>Babello drivs av [Ditt Företagsnamn]<br>
-        Organisationsnummer: [Ditt Org.nr när du registrerat företag]<br>
-        Sverige</p>
+        <h3>7.3 Rätt till radering - "rätten att bli glömd" (Artikel 17)</h3>
+        <ul>
+            <li>Radera ditt konto och alla tillhörande data</li>
+            <li>Gå till Inställningar > Konto > Radera konto</li>
+        </ul>
 
-        <a href="/" class="back-link">Tillbaka till startsidan</a>
+        <h3>7.4 Rätt till dataportabilitet (Artikel 20)</h3>
+        <ul>
+            <li>Exportera dina data i ett maskinläsbart format (JSON)</li>
+            <li>Överföra data till en annan tjänst</li>
+            <li>Använd "Exportera data" i Inställningar</li>
+        </ul>
+
+        <h3>7.5 Rätt att lämna klagomål</h3>
+        <p>Du kan lämna klagomål till Integritetsskyddsmyndigheten (IMY):</p>
+        <ul>
+            <li>Webbplats: <a href="https://www.imy.se" target="_blank">https://www.imy.se</a></li>
+            <li>E-post: imy@imy.se</li>
+            <li>Telefon: 08-657 61 00</li>
+        </ul>
+
+        <h2>8. Säkerhet</h2>
+
+        <h3>8.1 Tekniska säkerhetsåtgärder</h3>
+        <ul>
+            <li><strong>Kryptering:</strong> All data krypteras med HTTPS/TLS vid överföring</li>
+            <li><strong>Databaskryptering:</strong> PostgreSQL-databas med kryptering i vila</li>
+            <li><strong>Lösenord:</strong> Bcrypt-hashing med salt (BCrypt cost factor 10)</li>
+            <li><strong>JWT-tokens:</strong> Säkra autentiseringstokens med 30 dagars giltighetstid</li>
+            <li><strong>Refresh tokens:</strong> 5 års giltighetstid, roteras vid användning</li>
+        </ul>
+
+        <h3>8.2 Organisatoriska säkerhetsåtgärder</h3>
+        <ul>
+            <li>Begränsad tillgång till personuppgifter (endast utvecklare)</li>
+            <li>Regelbundna säkerhetsupdateringar</li>
+            <li>Säkerhetsgranskningar av kod</li>
+            <li>Incidenthanteringsplan</li>
+        </ul>
+
+        <p><strong>Vid dataintrång:</strong> Vi kommer att meddela dig och Integritetsskyddsmyndigheten inom 72 timmar enligt GDPR.</p>
+
+        <h2>9. Barn och minderåriga</h2>
+        <p>Babello är utformat för att föräldrar och vårdnadshavare ska spåra sina barns aktiviteter. Vi samlar inte medvetet in personuppgifter direkt från barn under 13 år.</p>
+        <ul>
+            <li>Endast föräldrar/vårdnadshavare ska skapa konton</li>
+            <li>Barninformation (namn, födelsedatum) registreras av föräldern</li>
+            <li>Barn ska inte använda appen självständigt</li>
+            <li>Om ett barn oavsiktligt har registrerat ett konto, kontakta oss för radering</li>
+        </ul>
+
+        <h2>10. Cookies och spårningsteknologier</h2>
+
+        <h3>10.1 I mobilappen</h3>
+        <p>Appen använder <strong>inga cookies</strong>. Vi använder istället:</p>
+        <ul>
+            <li><strong>AsyncStorage:</strong> Lokalt lagring för autentiseringstokens och offlinecache</li>
+            <li><strong>WebSocket:</strong> Realtidsanslutning för familjesynkronisering</li>
+        </ul>
+
+        <h3>10.2 På webbplatsen (babelloapp.se)</h3>
+        <p>Webbplatsen använder minimala cookies:</p>
+        <ul>
+            <li><strong>Inga analyticookies:</strong> Vi använder inte Google Analytics eller liknande</li>
+            <li><strong>Inga marknadsföringscookies</strong></li>
+            <li><strong>Endast tekniska cookies</strong> för grundläggande funktionalitet</li>
+        </ul>
+
+        <h2>11. Ändringar i integritetspolicyn</h2>
+        <p>Vi kan uppdatera denna integritetspolicy då och då. Vid väsentliga ändringar kommer vi att:</p>
+        <ul>
+            <li>Meddela dig via e-post</li>
+            <li>Visa ett meddelande i appen</li>
+            <li>Uppdatera "Senast uppdaterad"-datumet</li>
+        </ul>
+        <p>Din fortsatta användning av tjänsten efter ändringar utgör ditt godkännande av den nya policyn.</p>
+
+        <h2>12. Kontakta oss</h2>
+
+        <div class="contact-info">
+            <h3>För GDPR-relaterade förfrågningar (tillgång, radering, export):</h3>
+            <p><strong>E-post:</strong> <a href="mailto:babellosupport@gmail.com?subject=GDPR-förfrågan">babellosupport@gmail.com</a></p>
+            <p><strong>Ämnesrad:</strong> "GDPR-förfrågan"</p>
+            <p><strong>Svarstid:</strong> Vi svarar inom 30 dagar enligt lag</p>
+
+            <h3 style="margin-top: 24px;">För allmänna frågor:</h3>
+            <p><strong>E-post:</strong> <a href="mailto:babellosupport@gmail.com">babellosupport@gmail.com</a></p>
+            <p><strong>Webbplats:</strong> <a href="https://babelloapp.se">https://babelloapp.se</a></p>
+            <p><strong>Svarstid:</strong> Vi strävar efter att svara inom 48 timmar</p>
+        </div>
+
+        <h2>13. Juridisk information</h2>
+        <p>Denna integritetspolicy efterlever:</p>
+        <ul>
+            <li><strong>GDPR</strong> (EU:s dataskyddsförordning 2016/679)</li>
+            <li><strong>Dataskyddslagen (2018:218)</strong> (svensk implementering av GDPR)</li>
+            <li><strong>Lagen om elektronisk kommunikation (2022:482)</strong></li>
+            <li><strong>Swedish Consumer Law</strong> (Konsumentköplagen)</li>
+        </ul>
+        <p><strong>Tillämplig lag:</strong> Svensk lag<br>
+        <strong>Jurisdiktion:</strong> Svensk domstol<br>
+        <strong>Språk:</strong> Vid konflikt mellan språkversioner gäller den svenska versionen</p>
+
+        <div class="success-box" style="margin-top: 48px;">
+            <h3>Snabbguide: Hantera din integritet</h3>
+            <p><strong>Exportera dina data:</strong><br>
+            Inställningar > Integritet & Säkerhet > Exportera mina data</p>
+
+            <p><strong>Radera ditt konto:</strong><br>
+            Inställningar > Konto > Radera konto</p>
+
+            <p><strong>Hantera familjeåtkomst:</strong><br>
+            Inställningar > Familj > Se alla och återkalla åtkomst</p>
+        </div>
+
+        <p style="margin-top: 48px; text-align: center; color: #999; font-style: italic;">
+            Tack för att du litar på Babello med din familjs data. Vi tar vårt ansvar för din integritet på största allvar.
+        </p>
+
+        <div style="text-align: center;">
+            <a href="/" class="back-link">Tillbaka till startsidan</a>
+            <a href="/terms.html" class="back-link" style="margin-left: 16px; background: #667eea;">Läs användarvillkoren</a>
+        </div>
     </div>
 </body>
 </html>
