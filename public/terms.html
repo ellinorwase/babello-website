@@ -18,43 +18,123 @@
       color: #ffffff;
       line-height: 1.7;
       min-height: 100vh;
-      padding-top: 70px;
+      padding-top: 80px;
     }
 
-    .language-switcher {
+    /* Language Selector Dropdown */
+    .language-selector {
       position: fixed;
       top: 20px;
       right: 20px;
-      display: flex;
-      gap: 10px;
-      background: rgba(26, 26, 26, 0.95);
-      padding: 8px;
-      border-radius: 12px;
       z-index: 1000;
+    }
+
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .lang-current {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26, 26, 26, 0.95);
+      padding: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
       box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
       backdrop-filter: blur(10px);
     }
 
-    .lang-btn {
-      padding: 10px 20px;
-      border: none;
-      background: transparent;
-      color: #9ca3af;
-      border-radius: 8px;
-      cursor: pointer;
+    .lang-current:hover {
+      border-color: #9333ea;
+      background: rgba(147, 51, 234, 0.1);
+    }
+
+    .lang-flag {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .lang-current .lang-name {
+      display: none;
+    }
+
+    .lang-name {
       font-size: 14px;
       font-weight: 600;
+      color: #ffffff;
+    }
+
+    .lang-arrow {
+      font-size: 12px;
+      color: #9ca3af;
+      transition: transform 0.3s;
+    }
+
+    .lang-dropdown.open .lang-arrow {
+      transform: rotate(180deg);
+    }
+
+    .lang-options {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: rgba(26, 26, 26, 0.98);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
       transition: all 0.3s;
+      border: 1px solid #374151;
     }
 
-    .lang-btn:hover {
+    .lang-dropdown.open .lang-options {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-bottom: 1px solid #374151;
+    }
+
+    .lang-option:last-child {
+      border-bottom: none;
+    }
+
+    .lang-option:hover {
       background: rgba(147, 51, 234, 0.1);
-      color: #c084fc;
     }
 
-    .lang-btn.active {
-      background: #9333ea;
-      color: white;
+    .lang-option.active {
+      background: rgba(147, 51, 234, 0.2);
+    }
+
+    .lang-option .lang-flag {
+      font-size: 18px;
+    }
+
+    .lang-option .lang-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #d1d5db;
+    }
+
+    .lang-option.active .lang-name {
+      color: #c084fc;
+      font-weight: 600;
     }
 
     .content {
@@ -99,7 +179,7 @@
 
     .container {
       max-width: 900px;
-      margin: 20px auto 120px;
+      margin: 20px auto;
       padding: 40px 30px 80px;
       background: #1a1a1a;
       border-radius: 24px;
@@ -178,10 +258,10 @@
 
     @media (max-width: 768px) {
       body {
-        padding-top: 80px;
+        padding-top: 90px;
       }
 
-      .language-switcher {
+      .language-selector {
         top: 15px;
         right: 15px;
       }
@@ -206,10 +286,25 @@
   </style>
 </head>
 <body>
-  <!-- Language Switcher -->
-  <div class="language-switcher">
-    <button class="lang-btn" id="btn-sv" onclick="setLanguage('sv')">Svenska</button>
-    <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">English</button>
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <div class="lang-dropdown" id="langDropdown">
+      <div class="lang-current" onclick="toggleDropdown()">
+        <span class="lang-flag" id="currentFlag">🇸🇪</span>
+        <span class="lang-name" id="currentLang">Svenska</span>
+        <span class="lang-arrow">▼</span>
+      </div>
+      <div class="lang-options" id="langOptions">
+        <div class="lang-option active" data-lang="sv" onclick="selectLanguage('sv')">
+          <span class="lang-flag">🇸🇪</span>
+          <span class="lang-name">Svenska</span>
+        </div>
+        <div class="lang-option" data-lang="en" onclick="selectLanguage('en')">
+          <span class="lang-flag">🇬🇧</span>
+          <span class="lang-name">English</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Swedish Content -->
@@ -525,11 +620,21 @@
   </div>
 
   <script>
+    // Language configuration - easy to add more languages
+    const languages = {
+      'sv': { flag: '🇸🇪', name: 'Svenska' },
+      'en': { flag: '🇬🇧', name: 'English' },
+      // Add more languages here:
+      // 'es': { flag: '🇪🇸', name: 'Español' },
+      // 'de': { flag: '🇩🇪', name: 'Deutsch' },
+      // 'fr': { flag: '🇫🇷', name: 'Français' },
+    };
+
     function getInitialLanguage() {
       const urlParams = new URLSearchParams(window.location.search);
       const langParam = urlParams.get('lang');
 
-      if (langParam === 'sv' || langParam === 'en') {
+      if (langParam && languages[langParam]) {
         return langParam;
       }
 
@@ -537,27 +642,53 @@
       return browserLang.startsWith('sv') ? 'sv' : 'en';
     }
 
-    function setLanguage(lang) {
+    function toggleDropdown() {
+      const dropdown = document.getElementById('langDropdown');
+      dropdown.classList.toggle('open');
+    }
+
+    function selectLanguage(lang) {
+      // Hide all content
       document.querySelectorAll('.content').forEach(el => {
         el.classList.remove('active');
       });
 
+      // Show selected language
       document.getElementById('content-' + lang).classList.add('active');
 
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
+      // Update active state in dropdown
+      document.querySelectorAll('.lang-option').forEach(option => {
+        option.classList.remove('active');
       });
-      document.getElementById('btn-' + lang).classList.add('active');
+      document.querySelector(`.lang-option[data-lang="${lang}"]`).classList.add('active');
 
+      // Update current display
+      document.getElementById('currentFlag').textContent = languages[lang].flag;
+      document.getElementById('currentLang').textContent = languages[lang].name;
+
+      // Close dropdown
+      document.getElementById('langDropdown').classList.remove('open');
+
+      // Update URL
       const url = new URL(window.location);
       url.searchParams.set('lang', lang);
       window.history.replaceState({}, '', url);
 
+      // Update HTML lang attribute
       document.documentElement.lang = lang;
     }
 
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('langDropdown');
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+
+    // Initialize language on page load
     const initialLang = getInitialLanguage();
-    setLanguage(initialLang);
+    selectLanguage(initialLang);
   </script>
 </body>
 </html>
