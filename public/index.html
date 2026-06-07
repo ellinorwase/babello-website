@@ -88,13 +88,15 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             min-width: 180px;
-            max-height: 300px;
-            overflow-y: auto;
+            width: auto;
+            height: auto;
+            overflow: visible;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s;
             border: 1px solid #374151;
+            z-index: 9999;
         }
 
         .lang-dropdown.open .lang-options {
@@ -268,19 +270,20 @@
             background: #333333;
         }
 
-        [data-lang] {
+        /* Language content visibility - exclude dropdown options */
+        p[data-lang], div.subtitle[data-lang], div.feature-title[data-lang], div.feature-desc[data-lang], a[data-lang] {
             display: none;
         }
 
-        [data-lang="sv"] {
+        p[data-lang="sv"], div.subtitle[data-lang="sv"], div.feature-title[data-lang="sv"], div.feature-desc[data-lang="sv"], a[data-lang="sv"] {
             display: block;
         }
 
-        body.lang-en [data-lang="sv"] {
+        body.lang-en p[data-lang="sv"], body.lang-en div.subtitle[data-lang="sv"], body.lang-en div.feature-title[data-lang="sv"], body.lang-en div.feature-desc[data-lang="sv"], body.lang-en a[data-lang="sv"] {
             display: none;
         }
 
-        body.lang-en [data-lang="en"] {
+        body.lang-en p[data-lang="en"], body.lang-en div.subtitle[data-lang="en"], body.lang-en div.feature-title[data-lang="en"], body.lang-en div.feature-desc[data-lang="en"], body.lang-en a[data-lang="en"] {
             display: block;
         }
     </style>
