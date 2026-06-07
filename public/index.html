@@ -275,17 +275,26 @@
             display: none;
         }
 
+        /* Default: Swedish */
         [data-lang="sv"]:not(.lang-option) {
             display: block;
         }
 
-        body.lang-en [data-lang="sv"]:not(.lang-option) {
-            display: none;
-        }
+        /* Language-specific visibility */
+        body.lang-en [data-lang]:not(.lang-option) { display: none; }
+        body.lang-en [data-lang="en"]:not(.lang-option) { display: block; }
 
-        body.lang-en [data-lang="en"]:not(.lang-option) {
-            display: block;
-        }
+        body.lang-es [data-lang]:not(.lang-option) { display: none; }
+        body.lang-es [data-lang="es"]:not(.lang-option) { display: block; }
+
+        body.lang-de [data-lang]:not(.lang-option) { display: none; }
+        body.lang-de [data-lang="de"]:not(.lang-option) { display: block; }
+
+        body.lang-fr [data-lang]:not(.lang-option) { display: none; }
+        body.lang-fr [data-lang="fr"]:not(.lang-option) { display: block; }
+
+        body.lang-it [data-lang]:not(.lang-option) { display: none; }
+        body.lang-it [data-lang="it"]:not(.lang-option) { display: block; }
     </style>
 </head>
 <body>
@@ -306,6 +315,22 @@
                     <span class="lang-flag">🇬🇧</span>
                     <span class="lang-name">English</span>
                 </div>
+                <div class="lang-option" data-lang="es" onclick="selectLanguage('es')">
+                    <span class="lang-flag">🇪🇸</span>
+                    <span class="lang-name">Español</span>
+                </div>
+                <div class="lang-option" data-lang="de" onclick="selectLanguage('de')">
+                    <span class="lang-flag">🇩🇪</span>
+                    <span class="lang-name">Deutsch</span>
+                </div>
+                <div class="lang-option" data-lang="fr" onclick="selectLanguage('fr')">
+                    <span class="lang-flag">🇫🇷</span>
+                    <span class="lang-name">Français</span>
+                </div>
+                <div class="lang-option" data-lang="it" onclick="selectLanguage('it')">
+                    <span class="lang-flag">🇮🇹</span>
+                    <span class="lang-name">Italiano</span>
+                </div>
             </div>
         </div>
     </div>
@@ -318,6 +343,10 @@
 
         <p class="subtitle" data-lang="sv">Den ultimata appen för att följa ditt barns utveckling, sömn, mat och hälsa.</p>
         <p class="subtitle" data-lang="en">The ultimate app to track your baby's development, sleep, feeding, and health.</p>
+        <p class="subtitle" data-lang="es">La aplicación definitiva para seguir el desarrollo, sueño, alimentación y salud de tu bebé.</p>
+        <p class="subtitle" data-lang="de">Die ultimative App zur Verfolgung der Entwicklung, des Schlafs, der Ernährung und der Gesundheit Ihres Babys.</p>
+        <p class="subtitle" data-lang="fr">L'application ultime pour suivre le développement, le sommeil, l'alimentation et la santé de votre bébé.</p>
+        <p class="subtitle" data-lang="it">L'app definitiva per monitorare lo sviluppo, il sonno, l'alimentazione e la salute del tuo bambino.</p>
 
         <div class="features">
             <div class="feature">
@@ -327,8 +356,16 @@
                 <div class="feature-text">
                     <div class="feature-title" data-lang="sv">Följ tillväxt</div>
                     <div class="feature-title" data-lang="en">Track Growth</div>
+                    <div class="feature-title" data-lang="es">Seguir el crecimiento</div>
+                    <div class="feature-title" data-lang="de">Wachstum verfolgen</div>
+                    <div class="feature-title" data-lang="fr">Suivre la croissance</div>
+                    <div class="feature-title" data-lang="it">Segui la crescita</div>
                     <div class="feature-desc" data-lang="sv">Spåra längd, vikt och huvudomfång</div>
                     <div class="feature-desc" data-lang="en">Track height, weight, and head circumference</div>
+                    <div class="feature-desc" data-lang="es">Registra altura, peso y perímetro cefálico</div>
+                    <div class="feature-desc" data-lang="de">Verfolgen Sie Größe, Gewicht und Kopfumfang</div>
+                    <div class="feature-desc" data-lang="fr">Suivez la taille, le poids et le périmètre crânien</div>
+                    <div class="feature-desc" data-lang="it">Monitora altezza, peso e circonferenza cranica</div>
                 </div>
             </div>
 
@@ -339,8 +376,16 @@
                 <div class="feature-text">
                     <div class="feature-title" data-lang="sv">Sömnlogg</div>
                     <div class="feature-title" data-lang="en">Sleep Log</div>
+                    <div class="feature-title" data-lang="es">Registro de sueño</div>
+                    <div class="feature-title" data-lang="de">Schlafprotokoll</div>
+                    <div class="feature-title" data-lang="fr">Journal de sommeil</div>
+                    <div class="feature-title" data-lang="it">Registro del sonno</div>
                     <div class="feature-desc" data-lang="sv">Håll koll på sömnmönster och tupplurer</div>
                     <div class="feature-desc" data-lang="en">Keep track of sleep patterns and naps</div>
+                    <div class="feature-desc" data-lang="es">Registra patrones de sueño y siestas</div>
+                    <div class="feature-desc" data-lang="de">Verfolgen Sie Schlafmuster und Nickerchen</div>
+                    <div class="feature-desc" data-lang="fr">Suivez les habitudes de sommeil et les siestes</div>
+                    <div class="feature-desc" data-lang="it">Monitora i ritmi del sonno e i sonnellini</div>
                 </div>
             </div>
 
@@ -351,8 +396,16 @@
                 <div class="feature-text">
                     <div class="feature-title" data-lang="sv">Matning & Blöjor</div>
                     <div class="feature-title" data-lang="en">Feeding & Diapers</div>
+                    <div class="feature-title" data-lang="es">Alimentación y pañales</div>
+                    <div class="feature-title" data-lang="de">Fütterung & Windeln</div>
+                    <div class="feature-title" data-lang="fr">Alimentation et couches</div>
+                    <div class="feature-title" data-lang="it">Alimentazione e pannolini</div>
                     <div class="feature-desc" data-lang="sv">Logga amning, flaska och blöjbyten</div>
                     <div class="feature-desc" data-lang="en">Log breastfeeding, bottles, and diaper changes</div>
+                    <div class="feature-desc" data-lang="es">Registra lactancia, biberones y cambios de pañal</div>
+                    <div class="feature-desc" data-lang="de">Protokollieren Sie Stillen, Flaschen und Windelwechsel</div>
+                    <div class="feature-desc" data-lang="fr">Enregistrez l'allaitement, les biberons et les changes</div>
+                    <div class="feature-desc" data-lang="it">Registra allattamento, biberon e cambi pannolino</div>
                 </div>
             </div>
 
@@ -363,8 +416,16 @@
                 <div class="feature-text">
                     <div class="feature-title" data-lang="sv">Kalender</div>
                     <div class="feature-title" data-lang="en">Calendar</div>
+                    <div class="feature-title" data-lang="es">Calendario</div>
+                    <div class="feature-title" data-lang="de">Kalender</div>
+                    <div class="feature-title" data-lang="fr">Calendrier</div>
+                    <div class="feature-title" data-lang="it">Calendario</div>
                     <div class="feature-desc" data-lang="sv">BVC-besök, vaccinationer och möten</div>
                     <div class="feature-desc" data-lang="en">Doctor visits, vaccinations, and appointments</div>
+                    <div class="feature-desc" data-lang="es">Visitas médicas, vacunas y citas</div>
+                    <div class="feature-desc" data-lang="de">Arztbesuche, Impfungen und Termine</div>
+                    <div class="feature-desc" data-lang="fr">Visites médicales, vaccinations et rendez-vous</div>
+                    <div class="feature-desc" data-lang="it">Visite mediche, vaccinazioni e appuntamenti</div>
                 </div>
             </div>
         </div>
@@ -372,15 +433,27 @@
         <div class="download-buttons">
             <a href="#" class="btn" data-lang="sv">Ladda ner för iOS</a>
             <a href="#" class="btn" data-lang="en">Download for iOS</a>
+            <a href="#" class="btn" data-lang="es">Descargar para iOS</a>
+            <a href="#" class="btn" data-lang="de">Für iOS herunterladen</a>
+            <a href="#" class="btn" data-lang="fr">Télécharger pour iOS</a>
+            <a href="#" class="btn" data-lang="it">Scarica per iOS</a>
             <a href="mailto:support@babelloapp.se" class="btn btn-secondary" data-lang="sv">Kontakta oss</a>
             <a href="mailto:support@babelloapp.se" class="btn btn-secondary" data-lang="en">Contact Us</a>
+            <a href="mailto:support@babelloapp.se" class="btn btn-secondary" data-lang="es">Contáctanos</a>
+            <a href="mailto:support@babelloapp.se" class="btn btn-secondary" data-lang="de">Kontaktieren Sie uns</a>
+            <a href="mailto:support@babelloapp.se" class="btn btn-secondary" data-lang="fr">Nous contacter</a>
+            <a href="mailto:support@babelloapp.se" class="btn btn-secondary" data-lang="it">Contattaci</a>
         </div>
     </div>
 
     <script>
         const languages = {
             'sv': { flag: '🇸🇪', name: 'Svenska' },
-            'en': { flag: '🇬🇧', name: 'English' }
+            'en': { flag: '🇬🇧', name: 'English' },
+            'es': { flag: '🇪🇸', name: 'Español' },
+            'de': { flag: '🇩🇪', name: 'Deutsch' },
+            'fr': { flag: '🇫🇷', name: 'Français' },
+            'it': { flag: '🇮🇹', name: 'Italiano' }
         };
 
         function toggleDropdown() {
@@ -417,8 +490,17 @@
             }
         });
 
+        // Auto-detect browser language
+        function detectBrowserLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage; // e.g., "en-US", "es-ES"
+            const langCode = browserLang.toLowerCase().split('-')[0]; // Get just "en", "es", etc.
+
+            // Return the language if we support it, otherwise default to English
+            return languages[langCode] ? langCode : 'en';
+        }
+
         // Load saved language on page load
-        const savedLang = localStorage.getItem('language') || 'sv';
+        const savedLang = localStorage.getItem('language') || detectBrowserLanguage();
         selectLanguage(savedLang);
     </script>
 </body>
