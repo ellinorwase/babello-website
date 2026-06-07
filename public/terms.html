@@ -1,460 +1,563 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Användarvillkor - Babello</title>
-    <meta name="description" content="Användarvillkor för Babello - läs om dina rättigheter och skyldigheter när du använder vår app.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Babello - Terms of Service / Användarvillkor</title>
+  <meta name="description" content="Terms of Service for Babello - your rights and responsibilities when using our service.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: #000000;
-            color: #ffffff;
-            line-height: 1.7;
-            min-height: 100vh;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+      line-height: 1.7;
+      min-height: 100vh;
+      padding-top: 70px;
+    }
 
-        .header {
-            background: #000000;
-            color: white;
-            padding: 60px 20px 40px;
-            text-align: center;
-        }
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      background: rgba(26, 26, 26, 0.95);
+      padding: 8px;
+      border-radius: 12px;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
+      backdrop-filter: blur(10px);
+    }
 
-        .header h1 {
-            font-size: 36px;
-            margin-bottom: 12px;
-            color: #9333ea;
-            font-weight: 700;
-        }
+    .lang-btn {
+      padding: 10px 20px;
+      border: none;
+      background: transparent;
+      color: #9ca3af;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
 
-        .header p {
-            opacity: 0.7;
-            font-size: 14px;
-            color: #9ca3af;
-        }
+    .lang-btn:hover {
+      background: rgba(147, 51, 234, 0.1);
+      color: #c084fc;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 40px 20px 80px;
-            background: #1a1a1a;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
+    .lang-btn.active {
+      background: #9333ea;
+      color: white;
+    }
 
-        .update-date {
-            color: #9ca3af;
-            font-style: italic;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #333;
-        }
+    .content {
+      display: none;
+    }
 
-        h2 {
-            color: #9333ea;
-            margin-top: 48px;
-            margin-bottom: 16px;
-            font-size: 26px;
-            padding-top: 16px;
-            border-top: 2px solid #333;
-        }
+    .content.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in;
+    }
 
-        h2:first-of-type {
-            margin-top: 24px;
-            border-top: none;
-        }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        h3 {
-            color: #ffffff;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            font-size: 20px;
-        }
+    .header {
+      background: #000000;
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
 
-        h4 {
-            color: #e5e7eb;
-            margin-top: 16px;
-            margin-bottom: 8px;
-            font-size: 16px;
-            font-weight: 600;
-        }
+    .header h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      color: #9333ea;
+      font-weight: 700;
+    }
 
-        p {
-            margin-bottom: 16px;
-            color: #9ca3af;
-        }
+    .header p {
+      opacity: 0.7;
+      font-size: 16px;
+      color: #9ca3af;
+    }
 
-        ul, ol {
-            margin-left: 24px;
-            margin-bottom: 16px;
-        }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 40px 30px 80px;
+      background: #1a1a1a;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
 
-        li {
-            margin-bottom: 8px;
-            color: #9ca3af;
-        }
+    .last-updated {
+      font-style: italic;
+      color: #9ca3af;
+      margin-bottom: 32px;
+      padding: 16px;
+      background: rgba(147, 51, 234, 0.1);
+      border-left: 4px solid #9333ea;
+      border-radius: 8px;
+    }
 
-        strong {
-            color: #ffffff;
-        }
+    h2 {
+      color: #c084fc;
+      margin-top: 48px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #374151;
+      font-size: 28px;
+    }
 
-        a {
-            color: #9333ea;
-            text-decoration: none;
-        }
+    h3 {
+      color: #d8b4fe;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    p {
+      margin-bottom: 16px;
+      color: #d1d5db;
+    }
 
-        .highlight-box {
-            background: rgba(245, 158, 11, 0.1);
-            border-left: 4px solid #f59e0b;
-            padding: 16px;
-            margin: 24px 0;
-            border-radius: 8px;
-        }
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 20px;
+    }
 
-        .info-box {
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 4px solid #3b82f6;
-            padding: 16px;
-            margin: 24px 0;
-            border-radius: 8px;
-        }
+    li {
+      margin-bottom: 12px;
+      color: #d1d5db;
+    }
 
-        .success-box {
-            background: rgba(16, 185, 129, 0.1);
-            border-left: 4px solid #10b981;
-            padding: 16px;
-            margin: 24px 0;
-            border-radius: 8px;
-        }
+    strong {
+      color: #f3f4f6;
+      font-weight: 600;
+    }
 
-        .back-link {
-            display: inline-block;
-            margin-top: 48px;
-            padding: 12px 24px;
-            background: #9333ea;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
+    a {
+      color: #a78bfa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
 
-        .back-link:hover {
-            transform: translateY(-2px);
-            background: #a855f7;
-        }
+    a:hover {
+      color: #c084fc;
+      text-decoration: underline;
+    }
 
-        .contact-info {
-            background: #0a0a0a;
-            padding: 24px;
-            border-radius: 12px;
-            margin: 32px 0;
-            border: 1px solid #333;
-        }
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid #ef4444;
+      padding: 20px;
+      margin: 24px 0;
+      border-radius: 8px;
+    }
 
-        code {
-            background: #0a0a0a;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            color: #9333ea;
-        }
+    .warning-box h3 {
+      color: #fca5a5;
+      margin-top: 0;
+    }
 
-        .price-box {
-            background: rgba(147, 51, 234, 0.1);
-            border: 2px solid #9333ea;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 24px 0;
-        }
+    @media (max-width: 768px) {
+      body {
+        padding-top: 80px;
+      }
 
-        .summary-box {
-            background: #0a0a0a;
-            border: 2px solid #9333ea;
-            padding: 24px;
-            border-radius: 12px;
-            margin: 48px 0;
-        }
+      .language-switcher {
+        top: 15px;
+        right: 15px;
+      }
 
-        .summary-box h3 {
-            color: #9333ea;
-            margin-top: 0;
-        }
+      .header h1 {
+        font-size: 32px;
+      }
 
-        /* Mobile responsive styles */
-        @media (max-width: 768px) {
-            .container {
-                margin: 20px;
-                padding: 32px 24px 60px;
-            }
+      .container {
+        margin: 15px;
+        padding: 30px 20px 60px;
+      }
 
-            .back-link {
-                display: block;
-                margin: 16px auto 0 !important;
-                max-width: 280px;
-            }
+      h2 {
+        font-size: 24px;
+      }
 
-            .back-link:first-child {
-                margin-top: 48px !important;
-            }
-        }
-    </style>
+      h3 {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <button class="lang-btn" id="btn-sv" onclick="setLanguage('sv')">Svenska</button>
+    <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">English</button>
+  </div>
+
+  <!-- Swedish Content -->
+  <div class="content" data-lang="sv" id="content-sv">
     <div class="header">
-        <h1>Användarvillkor</h1>
-        <p>Babello - Villkor för användning av tjänsten</p>
+      <h1>Användarvillkor</h1>
+      <p>Babello - Villkor för användning av tjänsten</p>
     </div>
 
     <div class="container">
-        <p class="update-date">Senast uppdaterad: 3 juni 2026</p>
+      <p class="last-updated"><strong>Senast uppdaterad:</strong> 3 juni 2026</p>
 
-        <h2>1. Godkännande av villkor</h2>
-        <p>Välkommen till Babello! Genom att skapa ett konto, ladda ner, installera eller använda vår mobilapplikation ("Appen") och våra tjänster ("Tjänsten") godkänner du dessa användarvillkor ("Villkoren"). Om du inte godkänner dessa villkor, vänligen använd inte Tjänsten.</p>
+      <h2>1. Godkännande av villkor</h2>
+      <p>Välkommen till Babello! Genom att skapa ett konto, ladda ner, installera eller använda vår mobilapplikation ("Appen") och våra tjänster ("Tjänsten") godkänner du dessa användarvillkor ("Villkoren"). Om du inte godkänner dessa villkor, vänligen använd inte Tjänsten.</p>
 
-        <div class="highlight-box">
-            <strong>Viktigt:</strong>
-            <ul style="margin-top: 12px;">
-                <li>Du måste vara minst 18 år för att skapa ett konto</li>
-                <li>Du måste vara förälder eller vårdnadshavare för det barn vars data du registrerar</li>
-                <li>Genom att använda Tjänsten godkänner du också vår <a href="/privacy.html" style="color: #f59e0b;">Integritetspolicy</a></li>
-            </ul>
-        </div>
+      <p><strong>Viktig information:</strong></p>
+      <ul>
+        <li>Du måste vara minst 18 år för att skapa ett konto</li>
+        <li>Du måste vara förälder eller vårdnadshavare för det barn vars data du registrerar</li>
+        <li>Genom att använda Tjänsten godkänner du också vår <a href="privacy.html">Integritetspolicy</a></li>
+      </ul>
 
-        <h2>2. Tjänstebeskrivning</h2>
-        <p>Babello är en mobilapplikation för föräldrar och vårdnadshavare att spåra och dokumentera barns dagliga aktiviteter, tillväxt och utveckling.</p>
+      <h2>2. Tjänstebeskrivning</h2>
+      <p>Babello är en mobilapplikation för föräldrar och vårdnadshavare att spåra och dokumentera barns dagliga aktiviteter, tillväxt och utveckling.</p>
 
-        <h3>2.1 Gratis konto</h3>
+      <h3>2.1 Gratis konto</h3>
+      <ul>
+        <li>Spåra grundläggande aktiviteter (sömn, matning, blöjbyten, etc.)</li>
+        <li>30 dagars dataåtkomst</li>
+        <li>En användare per barn</li>
+        <li>Grundläggande statistik</li>
+      </ul>
+
+      <h3>2.2 Premium-konto</h3>
+      <ul>
+        <li>Obegränsad dataåtkomst</li>
+        <li>Familjeåtkomst (dela med flera användare)</li>
+        <li>Avancerade rapporter och grafer</li>
+        <li>Exportera data</li>
+        <li>Tillväxtspårning med WHO-percentiler</li>
+        <li>Kalenderfunktion med påminnelser</li>
+      </ul>
+
+      <h2>3. Prenumerationer och betalning</h2>
+
+      <h3>3.1 Prenumerationsplaner</h3>
+      <ul>
+        <li><strong>Månadsvis Premium:</strong> 39 SEK/månad - förnyelse sker automatiskt</li>
+        <li><strong>Årlig Premium:</strong> 390 SEK/år (2 månader gratis) - förnyelse sker automatiskt</li>
+        <li><strong>Gratis provperiod:</strong> 7 dagar gratis för nya Premium-användare</li>
+      </ul>
+
+      <h3>3.2 Betalningsvillkor</h3>
+      <p>Vi accepterar kredit-/debitkort via Stripe. Alla betalningar hanteras säkert av Stripe. Prenumerationer förnyas automatiskt och du måste säga upp innan nästa faktureringsperiod för att undvika betalning.</p>
+
+      <h3>3.3 Uppsägning av prenumeration</h3>
+      <p>Du kan säga upp din prenumeration när som helst via Inställningar → Prenumeration. Efter uppsägning:</p>
+      <ul>
+        <li>Din prenumeration förblir aktiv till periodens slut</li>
+        <li>Du har tillgång till Premium-funktioner till periodens slut</li>
+        <li>Ingen återbetalning för resterande tid</li>
+        <li>Kontot nedgraderas automatiskt till gratis när perioden slutar</li>
+      </ul>
+
+      <h3>3.4 Återbetalningspolicy</h3>
+      <p><strong>14 dagars ångerrätt (svensk konsumenträtt):</strong></p>
+      <ul>
+        <li>Du kan begära full återbetalning inom 14 dagar från köptillfället</li>
+        <li>Kontakta babellosupport@gmail.com med "Ångerrätt" i ämnesraden</li>
+        <li>Återbetalning sker inom 14 dagar</li>
+      </ul>
+      <p>Efter 14 dagar ges inga återbetalningar för redan debiterade perioder.</p>
+
+      <h2>4. Användarinnehåll och data</h2>
+
+      <h3>4.1 Ditt innehåll</h3>
+      <ul>
+        <li>Du äger all data du lägger in i Appen</li>
+        <li>Du ger oss licens att lagra och behandla din data för att tillhandahålla Tjänsten</li>
+        <li>Vi tar ingen äganderätt över din data</li>
+        <li>Vi säljer aldrig din data</li>
+      </ul>
+
+      <h3>4.2 Datasäkerhet</h3>
+      <ul>
+        <li>All data krypteras vid överföring (HTTPS/TLS)</li>
+        <li>Lösenord krypteras med bcrypt</li>
+        <li>Databas lagras på säkra servrar</li>
+        <li>Vi tar regelbundna säkerhetskopior</li>
+      </ul>
+
+      <h2>5. Familjeåtkomst och delning</h2>
+      <p>Premium-användare kan bjuda in familjemedlemmar att få åtkomst till barnets data. Familjemedlemmar kan se och lägga till aktiviteter. Du kan när som helst återkalla åtkomst via Inställningar → Familj.</p>
+
+      <div class="warning-box">
+        <h3>⚠️ VIKTIGT: Medicinskt ansvar</h3>
+        <p><strong>Babello är INTE en medicinsk tjänst eller rådgivare.</strong></p>
         <ul>
-            <li>Spåra grundläggande aktiviteter (sömn, matning, blöjbyten, etc.)</li>
-            <li>30 dagars dataåtkomst</li>
-            <li>En användare per barn</li>
-            <li>Grundläggande statistik</li>
+          <li>Tjänsten tillhandahåller INTE medicinsk diagnos eller rådgivning</li>
+          <li>Vid akuta situationer, ring 112 eller kontakta sjukvård</li>
+          <li>Tillväxtgrafer och percentiler är endast indikativa</li>
+          <li>Konsultera alltid barnavårdcentral (BVC) för professionell bedömning</li>
         </ul>
+      </div>
 
-        <h3>2.2 Premium-konto</h3>
-        <ul>
-            <li>Obegränsad dataåtkomst</li>
-            <li>Familjeåtkomst (flera användare kan dela åtkomst till samma barn)</li>
-            <li>Avancerade rapporter och grafer</li>
-            <li>Exportera data</li>
-            <li>Tillväxtspårning med WHO-percentiler</li>
-            <li>Kalenderfunktion med påminnelser</li>
-            <li>Att göra-listor</li>
-            <li>Prioriterad support</li>
-        </ul>
+      <h2>6. Tvistlösning och tillämplig lag</h2>
 
-        <h2>3. Konton och registrering</h2>
+      <h3>6.1 Tillämplig lag</h3>
+      <p>Dessa Villkor regleras av svensk lag. Svensk konsumentlagstiftning (Konsumentköplag, Marknadsföringsslag) är tillämplig.</p>
 
-        <h3>3.1 Kontoansvar</h3>
-        <ul>
-            <li>Du är ansvarig för att hålla dina inloggningsuppgifter säkra</li>
-            <li>Du ansvarar för all aktivitet som sker via ditt konto</li>
-            <li>Dela aldrig ditt lösenord med andra</li>
-            <li>Meddela oss omedelbart om obehörig användning av ditt konto</li>
-        </ul>
+      <h3>6.2 Tvistlösning</h3>
+      <ol>
+        <li><strong>Kontakta oss först:</strong> babellosupport@gmail.com</li>
+        <li><strong>Allmänna reklamationsnämnden (ARN):</strong> <a href="https://www.arn.se" target="_blank">www.arn.se</a> (gratis för konsumenter)</li>
+        <li><strong>Domstol:</strong> Som konsument har du rätt att väcka talan vid din hemorts tingsrätt</li>
+      </ol>
 
-        <h3>3.2 Kontoavslutning</h3>
-        <p>Du kan när som helst avsluta ditt konto genom att gå till Inställningar > Konto > Radera konto. All data raderas inom 30 dagar.</p>
+      <h2>7. Kontaktinformation</h2>
+      <ul>
+        <li><strong>E-post:</strong> babellosupport@gmail.com</li>
+        <li><strong>Webbplats:</strong> <a href="https://babelloapp.se">https://babelloapp.se</a></li>
+        <li><strong>Supporttider:</strong> Vardagar 09:00-17:00 CET</li>
+        <li><strong>Svarstid:</strong> Vi strävar efter att svara inom 48 timmar</li>
+      </ul>
 
-        <h2>4. Prenumerationer och betalning</h2>
+      <hr style="border: 1px solid #374151; margin: 40px 0;">
 
-        <div class="price-box">
-            <h3 style="margin-top: 0;">Prenumerationsplaner</h3>
-            <p><strong>Månadsvis Premium:</strong> 39 SEK/månad - Faktureras varje månad, förnyelse sker automatiskt</p>
-            <p><strong>Årlig Premium:</strong> 390 SEK/år (2 månader gratis) - Faktureras årligen, förnyelse sker automatiskt</p>
-            <p style="margin-bottom: 0;"><strong>Gratis provperiod:</strong> 7 dagars gratis provperiod för nya Premium-användare</p>
-        </div>
+      <h2>Sammanfattning (Inte juridiskt bindande)</h2>
+      <p><strong>✅ Du måste:</strong></p>
+      <ul>
+        <li>Vara minst 18 år</li>
+        <li>Vara förälder/vårdnadshavare till barn du registrerar</li>
+        <li>Hålla dina inloggningsuppgifter säkra</li>
+      </ul>
 
-        <h3>4.1 Betalningsvillkor</h3>
-        <ul>
-            <li><strong>Betalningsmetoder:</strong> Vi accepterar kredit-/debitkort via Stripe</li>
-            <li><strong>Automatisk förnyelse:</strong> Prenumerationer förnyas automatiskt. Du måste säga upp innan nästa faktureringsperiod för att undvika betalning</li>
-            <li><strong>Vi skickar påminnelse:</strong> 7 dagar innan förnyelse</li>
-        </ul>
+      <p><strong>✅ Prenumeration:</strong></p>
+      <ul>
+        <li>39 SEK/månad eller 390 SEK/år</li>
+        <li>7 dagars gratis provperiod</li>
+        <li>Automatisk förnyelse - säg upp när som helst</li>
+      </ul>
 
-        <h3>4.2 Uppsägning av prenumeration</h3>
-        <p>Du kan säga upp din prenumeration när som helst genom Inställningar > Prenumeration > Avbryt prenumeration.</p>
-        <p><strong>Efter uppsägning:</strong></p>
-        <ul>
-            <li>Din prenumeration förblir aktiv till periodens slut</li>
-            <li>Du har tillgång till Premium-funktioner till periodens slut</li>
-            <li>Ingen återbetalning för resterande tid</li>
-            <li>Kontot nedgraderas automatiskt till gratis när perioden slutar</li>
-        </ul>
+      <p><strong>✅ Dina rättigheter:</strong></p>
+      <ul>
+        <li>14 dagars ångerrätt</li>
+        <li>Exportera din data när som helst</li>
+        <li>Radera ditt konto när som helst</li>
+        <li>GDPR-skydd</li>
+      </ul>
 
-        <h3>4.3 Återbetalningspolicy</h3>
-        <div class="info-box">
-            <strong>14 dagars ångerrätt (svensk konsumenträtt):</strong>
-            <p style="margin-top: 12px; margin-bottom: 0;">Du har 14 dagars ångerrätt från köptillfället. Du kan begära full återbetalning inom denna period genom att kontakta <a href="mailto:babellosupport@gmail.com?subject=Ångerrätt">babellosupport@gmail.com</a> med "Ångerrätt" i ämnesraden.</p>
-        </div>
-
-        <h2>5. Användarinnehåll och data</h2>
-
-        <h3>5.1 Ditt innehåll</h3>
-        <ul>
-            <li>Du äger all data du lägger in i Appen (aktiviteter, barninfo, bilder)</li>
-            <li>Du ger oss licens att lagra och behandla din data för att tillhandahålla Tjänsten</li>
-            <li>Vi tar ingen äganderätt över din data</li>
-            <li>Vi säljer aldrig din data</li>
-        </ul>
-
-        <h3>5.2 Dataradering</h3>
-        <p>Vid kontoavslutning:</p>
-        <ul>
-            <li>All personlig data raderas inom 30 dagar</li>
-            <li>Betalningshistorik sparas i 7 år (enligt bokföringslagen)</li>
-            <li>Du kan begära omedelbar radering genom att kontakta support</li>
-        </ul>
-
-        <h2>6. Familjeåtkomst och delning</h2>
-
-        <h3>6.1 Bjuda in familjemedlemmar</h3>
-        <ul>
-            <li>Du kan bjuda in andra användare att få åtkomst till ditt barn</li>
-            <li>Familjemedlemmar kan se och lägga till aktiviteter</li>
-            <li>Endast Premium-användare kan använda familjeåtkomst</li>
-            <li>Du ansvarar för vilka du bjuder in</li>
-        </ul>
-
-        <h3>6.2 Återkalla åtkomst</h3>
-        <p>Du kan när som helst återkalla en familjemedlems åtkomst genom Inställningar > Familj > Återkalla. Användaren förlorar omedelbart åtkomst.</p>
-
-        <h2>7. Acceptabel användning</h2>
-
-        <div class="highlight-box">
-            <strong>Du får INTE använda Tjänsten för att:</strong>
-            <ul style="margin-top: 12px;">
-                <li>Bryta mot lagar eller regler</li>
-                <li>Registrera barn du inte är förälder/vårdnadshavare till</li>
-                <li>Sprida virus, skadlig kod eller liknande</li>
-                <li>Försöka få obehörig åtkomst till system</li>
-                <li>Använda Tjänsten i kommersiellt syfte utan vårt tillstånd</li>
-            </ul>
-        </div>
-
-        <h2>8. Ansvarsfriskrivning</h2>
-
-        <div class="highlight-box">
-            <h3 style="margin-top: 0;">VIKTIGT - Medicinskt ansvar</h3>
-            <p><strong>Babello är INTE en medicinsk tjänst eller rådgivare.</strong></p>
-            <ul>
-                <li>Tjänsten tillhandahåller INTE medicinsk diagnos eller rådgivning</li>
-                <li>Använd alltid medicinska yrkespersoner för hälsofrågor</li>
-                <li>Vid akuta situationer, ring 112 eller kontakta sjukvård</li>
-                <li>Tillväxtgrafer och percentiler är endast indikativa</li>
-                <li>Konsultera alltid barnavårdcentral (BVC) för professionell bedömning</li>
-            </ul>
-        </div>
-
-        <h2>9. Ansvarsbegränsning</h2>
-        <p>I den utsträckning som tillåts enligt lag:</p>
-        <ul>
-            <li>Vi ansvarar inte för indirekta skador, förlorad vinst eller dataförlust</li>
-            <li>Vårt totala ansvar begränsas till det belopp du betalat de senaste 12 månaderna</li>
-            <li>Vi ansvarar inte för skador orsakade av tredje part (t.ex. Stripe, Railway)</li>
-        </ul>
-
-        <p><strong>Enligt svensk lag kan vi inte begränsa ansvar för:</strong></p>
-        <ul>
-            <li>Personskada orsakad av vår vårdslöshet</li>
-            <li>Bedrägeri eller bedrägligt agerande</li>
-            <li>Grova vårdslöshetshandlingar</li>
-        </ul>
-
-        <h2>10. Ändringar av Tjänsten och Villkoren</h2>
-        <p>Vi förbehåller oss rätten att uppdatera dessa Villkor från tid till annan. Väsentliga ändringar meddelas minst 30 dagar i förväg via e-post. Fortsatt användning efter ändring utgör godkännande.</p>
-
-        <h2>11. Tvistlösning och tillämplig lag</h2>
-
-        <h3>11.1 Tillämplig lag</h3>
-        <p>Dessa Villkor regleras av svensk lag. Svensk konsumentlagstiftning (Konsumentköplag, Marknadsföringsslag) är tillämplig.</p>
-
-        <h3>11.2 Tvistlösning</h3>
-
-        <p><strong>Steg 1: Kontakta oss</strong></p>
-        <p>Kontakta först vår support: <a href="mailto:babellosupport@gmail.com">babellosupport@gmail.com</a>. Vi strävar efter att lösa alla tvister inom 14 dagar.</p>
-
-        <p><strong>Steg 2: Allmänna reklamationsnämnden (ARN)</strong></p>
-        <p>Om vi inte kan lösa tvisten kan du vända dig till ARN (gratis för konsumenter):</p>
-        <ul>
-            <li>Webbplats: <a href="https://www.arn.se" target="_blank">https://www.arn.se</a></li>
-            <li>Telefon: 08-508 860 00</li>
-        </ul>
-
-        <p><strong>Steg 3: Domstol</strong></p>
-        <p>Som konsument har du rätt att väcka talan vid din hemorts tingsrätt.</p>
-
-        <h2>12. Kontaktinformation</h2>
-
-        <div class="contact-info">
-            <p><strong>Babello</strong></p>
-            <p>E-post: <a href="mailto:babellosupport@gmail.com">babellosupport@gmail.com</a></p>
-            <p>Webbplats: <a href="https://babelloapp.se">https://babelloapp.se</a></p>
-
-            <h3 style="margin-top: 24px;">Supporttider:</h3>
-            <p>E-postsupport: Vardagar 09:00-17:00 CET<br>
-            Svarstid: Vi strävar efter att svara inom 48 timmar</p>
-
-            <p style="margin-top: 16px;"><strong>För GDPR-förfrågningar:</strong><br>
-            Ämnesrad: "GDPR-förfrågan" - Vi svarar inom 30 dagar enligt lag</p>
-        </div>
-
-        <div class="summary-box">
-            <h3>Sammanfattning (Inte juridiskt bindande)</h3>
-
-            <p><strong>Du måste:</strong></p>
-            <ul>
-                <li>Vara minst 18 år</li>
-                <li>Vara förälder/vårdnadshavare till barn du registrerar</li>
-                <li>Hålla dina inloggningsuppgifter säkra</li>
-                <li>Följa dessa Villkor</li>
-            </ul>
-
-            <p><strong>Prenumeration:</strong></p>
-            <ul>
-                <li>39 SEK/månad eller 390 SEK/år</li>
-                <li>7 dagars gratis provperiod</li>
-                <li>Automatisk förnyelse - säg upp när som helst</li>
-            </ul>
-
-            <p><strong>Dina rättigheter:</strong></p>
-            <ul>
-                <li>14 dagars ångerrätt</li>
-                <li>Exportera din data när som helst</li>
-                <li>Radera ditt konto när som helst</li>
-                <li>GDPR-skydd</li>
-            </ul>
-
-            <p><strong>Viktigt att veta:</strong></p>
-            <ul>
-                <li>Babello är INTE medicinsk rådgivning</li>
-                <li>Vi ansvarar inte för medicinska beslut</li>
-                <li>Konsultera alltid läkare för hälsofrågor</li>
-            </ul>
-
-            <p style="margin-bottom: 0;"><strong>Kontakt:</strong> <a href="mailto:babellosupport@gmail.com">babellosupport@gmail.com</a> - Svarstid: 48 timmar</p>
-        </div>
-
-        <p style="margin-top: 48px; text-align: center; color: #9ca3af; font-style: italic;">
-            Tack för att du använder Babello! Vi är dedikerade till att ge dig bästa möjliga tjänst för att följa ditt barns utveckling.
-        </p>
-
-        <div style="text-align: center;">
-            <a href="/" class="back-link">Tillbaka till startsidan</a>
-            <a href="/privacy.html" class="back-link" style="margin-left: 16px; background: #667eea;">Läs integritetspolicyn</a>
-        </div>
+      <p><strong>❌ Viktigt att veta:</strong></p>
+      <ul>
+        <li>Babello är INTE medicinsk rådgivning</li>
+        <li>Konsultera alltid läkare för hälsofrågor</li>
+      </ul>
     </div>
+  </div>
+
+  <!-- English Content -->
+  <div class="content" data-lang="en" id="content-en">
+    <div class="header">
+      <h1>Terms of Service</h1>
+      <p>Babello - Terms for using the service</p>
+    </div>
+
+    <div class="container">
+      <p class="last-updated"><strong>Last updated:</strong> June 3, 2026</p>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>Welcome to Babello! By creating an account, downloading, installing or using our mobile application ("App") and our services ("Service"), you agree to these terms of service ("Terms"). If you do not agree to these Terms, please do not use the Service.</p>
+
+      <p><strong>Important information:</strong></p>
+      <ul>
+        <li>You must be at least 18 years old to create an account</li>
+        <li>You must be a parent or guardian of the child whose data you register</li>
+        <li>By using the Service, you also agree to our <a href="privacy.html?lang=en">Privacy Policy</a></li>
+      </ul>
+
+      <h2>2. Service Description</h2>
+      <p>Babello is a mobile application for parents and guardians to track and document their child's daily activities, growth and development.</p>
+
+      <h3>2.1 Free account</h3>
+      <ul>
+        <li>Track basic activities (sleep, feeding, diaper changes, etc.)</li>
+        <li>30 days data access</li>
+        <li>One user per child</li>
+        <li>Basic statistics</li>
+      </ul>
+
+      <h3>2.2 Premium account</h3>
+      <ul>
+        <li>Unlimited data access</li>
+        <li>Family access (share with multiple users)</li>
+        <li>Advanced reports and charts</li>
+        <li>Export data</li>
+        <li>Growth tracking with WHO percentiles</li>
+        <li>Calendar with reminders</li>
+      </ul>
+
+      <h2>3. Subscriptions and Payment</h2>
+
+      <h3>3.1 Subscription Plans</h3>
+      <ul>
+        <li><strong>Monthly Premium:</strong> 39 SEK/month - automatically renews</li>
+        <li><strong>Annual Premium:</strong> 390 SEK/year (2 months free) - automatically renews</li>
+        <li><strong>Free trial:</strong> 7 days free for new Premium users</li>
+      </ul>
+
+      <h3>3.2 Payment Terms</h3>
+      <p>We accept credit/debit cards via Stripe. All payments are securely processed by Stripe. Subscriptions renew automatically and you must cancel before the next billing period to avoid charges.</p>
+
+      <h3>3.3 Canceling Subscription</h3>
+      <p>You can cancel your subscription at any time via Settings → Subscription. After cancellation:</p>
+      <ul>
+        <li>Your subscription remains active until the end of the period</li>
+        <li>You have access to Premium features until the end of the period</li>
+        <li>No refund for remaining time</li>
+        <li>Account automatically downgrades to free when period ends</li>
+      </ul>
+
+      <h3>3.4 Refund Policy</h3>
+      <p><strong>14-day right of withdrawal (Swedish consumer law):</strong></p>
+      <ul>
+        <li>You can request a full refund within 14 days of purchase</li>
+        <li>Contact babellosupport@gmail.com with "Refund Request" in the subject line</li>
+        <li>Refund processed within 14 days</li>
+      </ul>
+      <p>After 14 days, no refunds are given for already charged periods.</p>
+
+      <h2>4. User Content and Data</h2>
+
+      <h3>4.1 Your Content</h3>
+      <ul>
+        <li>You own all data you enter in the App</li>
+        <li>You grant us a license to store and process your data to provide the Service</li>
+        <li>We take no ownership of your data</li>
+        <li>We never sell your data</li>
+      </ul>
+
+      <h3>4.2 Data Security</h3>
+      <ul>
+        <li>All data encrypted during transmission (HTTPS/TLS)</li>
+        <li>Passwords encrypted with bcrypt</li>
+        <li>Database stored on secure servers</li>
+        <li>We take regular backups</li>
+      </ul>
+
+      <h2>5. Family Access and Sharing</h2>
+      <p>Premium users can invite family members to access their child's data. Family members can view and add activities. You can revoke access at any time via Settings → Family.</p>
+
+      <div class="warning-box">
+        <h3>⚠️ IMPORTANT: Medical Disclaimer</h3>
+        <p><strong>Babello is NOT a medical service or advisor.</strong></p>
+        <ul>
+          <li>The Service does NOT provide medical diagnosis or advice</li>
+          <li>In acute situations, call emergency services or contact healthcare</li>
+          <li>Growth charts and percentiles are indicative only</li>
+          <li>Always consult healthcare professionals for medical assessment</li>
+        </ul>
+      </div>
+
+      <h2>6. Dispute Resolution and Applicable Law</h2>
+
+      <h3>6.1 Applicable Law</h3>
+      <p>These Terms are governed by Swedish law. Swedish consumer legislation (Consumer Sales Act, Marketing Act) applies.</p>
+
+      <h3>6.2 Dispute Resolution</h3>
+      <ol>
+        <li><strong>Contact us first:</strong> babellosupport@gmail.com</li>
+        <li><strong>General Complaints Board (ARN):</strong> <a href="https://www.arn.se" target="_blank">www.arn.se</a> (free for consumers)</li>
+        <li><strong>Court:</strong> As a consumer, you have the right to bring action in your local district court</li>
+      </ol>
+
+      <h2>7. Contact Information</h2>
+      <ul>
+        <li><strong>Email:</strong> babellosupport@gmail.com</li>
+        <li><strong>Website:</strong> <a href="https://babelloapp.se">https://babelloapp.se</a></li>
+        <li><strong>Support hours:</strong> Weekdays 09:00-17:00 CET</li>
+        <li><strong>Response time:</strong> We aim to respond within 48 hours</li>
+      </ul>
+
+      <hr style="border: 1px solid #374151; margin: 40px 0;">
+
+      <h2>Summary (Not legally binding)</h2>
+      <p><strong>✅ You must:</strong></p>
+      <ul>
+        <li>Be at least 18 years old</li>
+        <li>Be a parent/guardian of children you register</li>
+        <li>Keep your login credentials secure</li>
+      </ul>
+
+      <p><strong>✅ Subscription:</strong></p>
+      <ul>
+        <li>39 SEK/month or 390 SEK/year</li>
+        <li>7-day free trial</li>
+        <li>Automatic renewal - cancel anytime</li>
+      </ul>
+
+      <p><strong>✅ Your rights:</strong></p>
+      <ul>
+        <li>14-day right of withdrawal</li>
+        <li>Export your data anytime</li>
+        <li>Delete your account anytime</li>
+        <li>GDPR protection</li>
+      </ul>
+
+      <p><strong>❌ Important to know:</strong></p>
+      <ul>
+        <li>Babello is NOT medical advice</li>
+        <li>Always consult healthcare professionals for health questions</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function getInitialLanguage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const langParam = urlParams.get('lang');
+
+      if (langParam === 'sv' || langParam === 'en') {
+        return langParam;
+      }
+
+      const browserLang = navigator.language || navigator.userLanguage;
+      return browserLang.startsWith('sv') ? 'sv' : 'en';
+    }
+
+    function setLanguage(lang) {
+      document.querySelectorAll('.content').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      document.getElementById('content-' + lang).classList.add('active');
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById('btn-' + lang).classList.add('active');
+
+      const url = new URL(window.location);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url);
+
+      document.documentElement.lang = lang;
+    }
+
+    const initialLang = getInitialLanguage();
+    setLanguage(initialLang);
+  </script>
 </body>
 </html>

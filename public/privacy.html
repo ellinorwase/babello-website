@@ -1,480 +1,606 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integritetspolicy - Babello</title>
-    <meta name="description" content="GDPR-kompatibel integritetspolicy för Babello - hur vi samlar in, använder och skyddar dina personuppgifter.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Babello - Privacy Policy / Integritetspolicy</title>
+  <meta name="description" content="GDPR-compliant privacy policy for Babello - how we collect, use and protect your personal data.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: #000000;
-            color: #ffffff;
-            line-height: 1.7;
-            min-height: 100vh;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
+      color: #ffffff;
+      line-height: 1.7;
+      min-height: 100vh;
+      padding-top: 80px;
+    }
 
-        .header {
-            background: #000000;
-            color: white;
-            padding: 60px 20px 40px;
-            text-align: center;
-        }
+    /* Language Selector Dropdown */
+    .language-selector {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
 
-        .header h1 {
-            font-size: 36px;
-            margin-bottom: 12px;
-            color: #9333ea;
-            font-weight: 700;
-        }
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-        .header p {
-            opacity: 0.7;
-            font-size: 14px;
-            color: #9ca3af;
-        }
+    .lang-current {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26, 26, 26, 0.95);
+      padding: 12px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
+      backdrop-filter: blur(10px);
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 40px 20px 80px;
-            background: #1a1a1a;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
+    .lang-current:hover {
+      border-color: #9333ea;
+      background: rgba(147, 51, 234, 0.1);
+    }
 
-        .update-date {
-            color: #9ca3af;
-            font-style: italic;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #333;
-        }
+    .lang-flag {
+      font-size: 20px;
+      line-height: 1;
+    }
 
-        .toc {
-            background: #0a0a0a;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 32px 0;
-            border: 1px solid #333;
-        }
+    .lang-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+    }
 
-        .toc h3 {
-            font-size: 18px;
-            margin-bottom: 12px;
-            color: #9333ea;
-        }
+    .lang-arrow {
+      font-size: 12px;
+      color: #9ca3af;
+      transition: transform 0.3s;
+    }
 
-        .toc ul {
-            list-style: none;
-            margin-left: 0;
-        }
+    .lang-dropdown.open .lang-arrow {
+      transform: rotate(180deg);
+    }
 
-        .toc li {
-            margin-bottom: 8px;
-        }
+    .lang-options {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: rgba(26, 26, 26, 0.98);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s;
+      border: 1px solid #374151;
+    }
 
-        .toc a {
-            color: #9333ea;
-            text-decoration: none;
-        }
+    .lang-dropdown.open .lang-options {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
 
-        .toc a:hover {
-            text-decoration: underline;
-        }
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-bottom: 1px solid #374151;
+    }
 
-        h2 {
-            color: #9333ea;
-            margin-top: 48px;
-            margin-bottom: 16px;
-            font-size: 26px;
-            padding-top: 16px;
-            border-top: 2px solid #333;
-        }
+    .lang-option:last-child {
+      border-bottom: none;
+    }
 
-        h2:first-of-type {
-            margin-top: 24px;
-            border-top: none;
-        }
+    .lang-option:hover {
+      background: rgba(147, 51, 234, 0.1);
+    }
 
-        h3 {
-            color: #ffffff;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            font-size: 20px;
-        }
+    .lang-option.active {
+      background: rgba(147, 51, 234, 0.2);
+    }
 
-        h4 {
-            color: #e5e7eb;
-            margin-top: 16px;
-            margin-bottom: 8px;
-            font-size: 16px;
-            font-weight: 600;
-        }
+    .lang-option .lang-flag {
+      font-size: 18px;
+    }
 
-        p {
-            margin-bottom: 16px;
-            color: #9ca3af;
-        }
+    .lang-option .lang-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #d1d5db;
+    }
 
-        ul, ol {
-            margin-left: 24px;
-            margin-bottom: 16px;
-        }
+    .lang-option.active .lang-name {
+      color: #c084fc;
+      font-weight: 600;
+    }
 
-        li {
-            margin-bottom: 8px;
-            color: #9ca3af;
-        }
+    /* Content sections */
+    .content {
+      display: none;
+    }
 
-        strong {
-            color: #ffffff;
-        }
+    .content.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in;
+    }
 
-        a {
-            color: #9333ea;
-            text-decoration: none;
-        }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    .header {
+      background: #000000;
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
 
-        .highlight-box {
-            background: rgba(245, 158, 11, 0.1);
-            border-left: 4px solid #f59e0b;
-            padding: 16px;
-            margin: 24px 0;
-            border-radius: 8px;
-        }
+    .header h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      color: #9333ea;
+      font-weight: 700;
+    }
 
-        .info-box {
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 4px solid #3b82f6;
-            padding: 16px;
-            margin: 24px 0;
-            border-radius: 8px;
-        }
+    .header p {
+      opacity: 0.7;
+      font-size: 16px;
+      color: #9ca3af;
+    }
 
-        .success-box {
-            background: rgba(16, 185, 129, 0.1);
-            border-left: 4px solid #10b981;
-            padding: 16px;
-            margin: 24px 0;
-            border-radius: 8px;
-        }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 40px 30px 80px;
+      background: #1a1a1a;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
 
-        .back-link {
-            display: inline-block;
-            margin-top: 48px;
-            padding: 12px 24px;
-            background: #9333ea;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
+    .last-updated {
+      font-style: italic;
+      color: #9ca3af;
+      margin-bottom: 32px;
+      padding: 16px;
+      background: rgba(147, 51, 234, 0.1);
+      border-left: 4px solid #9333ea;
+      border-radius: 8px;
+    }
 
-        .back-link:hover {
-            transform: translateY(-2px);
-            background: #a855f7;
-        }
+    h2 {
+      color: #c084fc;
+      margin-top: 48px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #374151;
+      font-size: 28px;
+    }
 
-        .contact-info {
-            background: #0a0a0a;
-            padding: 24px;
-            border-radius: 12px;
-            margin: 32px 0;
-            border: 1px solid #333;
-        }
+    h3 {
+      color: #d8b4fe;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
 
-        code {
-            background: #0a0a0a;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            color: #9333ea;
-        }
+    p {
+      margin-bottom: 16px;
+      color: #d1d5db;
+    }
 
-        /* Mobile responsive styles */
-        @media (max-width: 768px) {
-            .container {
-                margin: 20px;
-                padding: 32px 24px 60px;
-            }
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 20px;
+    }
 
-            .back-link {
-                display: block;
-                margin: 16px auto 0 !important;
-                max-width: 280px;
-            }
+    li {
+      margin-bottom: 12px;
+      color: #d1d5db;
+    }
 
-            .back-link:first-child {
-                margin-top: 48px !important;
-            }
-        }
-    </style>
+    strong {
+      color: #f3f4f6;
+      font-weight: 600;
+    }
+
+    a {
+      color: #a78bfa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #c084fc;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 90px;
+      }
+
+      .language-selector {
+        top: 15px;
+        right: 15px;
+      }
+
+      .header h1 {
+        font-size: 32px;
+      }
+
+      .container {
+        margin: 15px;
+        padding: 30px 20px 60px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <div class="lang-dropdown" id="langDropdown">
+      <div class="lang-current" onclick="toggleDropdown()">
+        <span class="lang-flag" id="currentFlag">🇸🇪</span>
+        <span class="lang-name" id="currentLang">Svenska</span>
+        <span class="lang-arrow">▼</span>
+      </div>
+      <div class="lang-options" id="langOptions">
+        <div class="lang-option" data-lang="sv" onclick="selectLanguage('sv')">
+          <span class="lang-flag">🇸🇪</span>
+          <span class="lang-name">Svenska</span>
+        </div>
+        <div class="lang-option" data-lang="en" onclick="selectLanguage('en')">
+          <span class="lang-flag">🇬🇧</span>
+          <span class="lang-name">English</span>
+        </div>
+        <!-- Add more languages here in the future -->
+        <!-- <div class="lang-option" data-lang="es" onclick="selectLanguage('es')">
+          <span class="lang-flag">🇪🇸</span>
+          <span class="lang-name">Español</span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Swedish Content -->
+  <div class="content" data-lang="sv" id="content-sv">
     <div class="header">
-        <h1>Integritetspolicy</h1>
-        <p>Babello - GDPR-kompatibel integritetspolicy</p>
+      <h1>Integritetspolicy</h1>
+      <p>Babello - GDPR-kompatibel integritetspolicy</p>
     </div>
 
     <div class="container">
-        <p class="update-date">Senast uppdaterad: 3 juni 2026</p>
+      <p class="last-updated"><strong>Senast uppdaterad:</strong> 3 juni 2026</p>
 
-        <div class="highlight-box">
-            <strong>Viktigt:</strong> Denna integritetspolicy är utformad för att följa GDPR (EU:s dataskyddsförordning 2016/679) och svensk dataskyddslagstiftning. Du har full kontroll över dina personuppgifter och kan när som helst utöva dina rättigheter.
-        </div>
+      <h2>1. Introduktion</h2>
+      <p>Välkommen till Babello. Vi värnar om din integritet och är dedikerade till att skydda dina personuppgifter. Denna integritetspolicy beskriver hur vi samlar in, använder, lagrar och skyddar dina personuppgifter när du använder vår mobilapplikation och tjänster.</p>
 
-        <h2>1. Introduktion</h2>
-        <p>Välkommen till Babello. Vi värnar om din integritet och är dedikerade till att skydda dina personuppgifter. Denna integritetspolicy beskriver hur vi samlar in, använder, lagrar och skyddar dina personuppgifter när du använder vår mobilapplikation och tjänster.</p>
+      <p><strong>Personuppgiftsansvarig:</strong></p>
+      <ul>
+        <li>Babello</li>
+        <li>E-post: babellosupport@gmail.com</li>
+        <li>Webbplats: https://babelloapp.se</li>
+      </ul>
 
-        <p><strong>Personuppgiftsansvarig:</strong></p>
-        <ul>
-            <li>Babello</li>
-            <li>E-post: <a href="mailto:babellosupport@gmail.com">babellosupport@gmail.com</a></li>
-            <li>Webbplats: <a href="https://babelloapp.se">https://babelloapp.se</a></li>
-        </ul>
+      <h2>2. Personuppgifter vi samlar in</h2>
 
-        <h2>2. Personuppgifter vi samlar in</h2>
+      <h3>2.1 Information du tillhandahåller direkt</h3>
+      <ul>
+        <li><strong>Kontoinformation:</strong> E-postadress, namn, lösenord (krypterat)</li>
+        <li><strong>Barninformation:</strong> Barnets namn, födelsedatum, kön, profilbild (valfritt)</li>
+        <li><strong>Aktivitetsdata:</strong> Sömnmönster, matning, blöjbyten, lektider, tillväxtmätningar, mediciner, temperaturer</li>
+        <li><strong>Familjedata:</strong> Information om familjemedlemmar du delar åtkomst med</li>
+        <li><strong>Kommunikation:</strong> Meddelanden du skickar till vår support</li>
+      </ul>
 
-        <h3>2.1 Information du tillhandahåller direkt</h3>
-        <ul>
-            <li><strong>Kontoinformation:</strong> E-postadress, namn, lösenord (krypterat)</li>
-            <li><strong>Barninformation:</strong> Barnets namn, födelsedatum, kön, profilbild (valfritt)</li>
-            <li><strong>Aktivitetsdata:</strong> Sömnmönster, matning, blöjbyten, lektider, tillväxtmätningar, mediciner, temperaturer</li>
-            <li><strong>Familjedata:</strong> Information om familjemedlemmar du delar åtkomst med</li>
-            <li><strong>Kommunikation:</strong> Meddelanden du skickar till vår support</li>
-        </ul>
+      <h3>2.2 Information som samlas in automatiskt</h3>
+      <ul>
+        <li><strong>Användningsdata:</strong> Hur du interagerar med appen, vilka funktioner du använder</li>
+        <li><strong>Enhetsdata:</strong> Enhetstyp, operativsystem, unik enhetsidentifierare</li>
+        <li><strong>Teknisk data:</strong> IP-adress, webbläsartyp, tidszon, språkinställningar</li>
+        <li><strong>Felsökningsdata:</strong> Kraschrapporter och tekniska felloggar</li>
+      </ul>
 
-        <h3>2.2 Information som samlas in automatiskt</h3>
-        <ul>
-            <li><strong>Användningsdata:</strong> Hur du interagerar med appen, vilka funktioner du använder</li>
-            <li><strong>Enhetsdata:</strong> Enhetstyp, operativsystem, unik enhetsidentifierare</li>
-            <li><strong>Teknisk data:</strong> IP-adress, webbläsartyp, tidszon, språkinställningar</li>
-            <li><strong>Felsökningsdata:</strong> Kraschrapporter och tekniska felloggar</li>
-        </ul>
+      <h2>3. Hur vi använder dina personuppgifter</h2>
 
-        <h3>2.3 Information från tredje part</h3>
-        <ul>
-            <li><strong>Betalningstjänster:</strong> Stripe hanterar betalningar och vi tar emot betalningsstatus (ej fullständiga kortuppgifter)</li>
-        </ul>
+      <h3>3.1 Tillhandahålla tjänsten</h3>
+      <ul>
+        <li>Skapa och hantera ditt konto</li>
+        <li>Spara och synkronisera barnets aktivitetsdata</li>
+        <li>Möjliggöra familjeåtkomst och realtidssynkronisering</li>
+        <li>Tillhandahålla tillväxtspårning och statistik</li>
+      </ul>
 
-        <h2>3. Hur vi använder dina personuppgifter</h2>
+      <h3>3.2 Betalningshantering</h3>
+      <ul>
+        <li>Hantera prenumerationer och betalningar</li>
+        <li>Tillhandahålla premium-funktioner</li>
+        <li>Skicka kvitton och fakturor</li>
+      </ul>
 
-        <h3>3.1 Tillhandahålla tjänsten (Rättslig grund: Fullgörande av avtal)</h3>
-        <ul>
-            <li>Skapa och hantera ditt konto</li>
-            <li>Spara och synkronisera barnets aktivitetsdata</li>
-            <li>Möjliggöra familjeåtkomst och realtidssynkronisering</li>
-            <li>Tillhandahålla tillväxtspårning och statistik</li>
-        </ul>
+      <h2>4. Delning av personuppgifter</h2>
+      <p><strong>Vi säljer aldrig dina personuppgifter.</strong> Vi delar endast data i följande situationer:</p>
 
-        <h3>3.2 Betalningshantering (Rättslig grund: Fullgörande av avtal)</h3>
-        <ul>
-            <li>Hantera prenumerationer och betalningar</li>
-            <li>Tillhandahålla premium-funktioner</li>
-            <li>Skicka kvitton och fakturor</li>
-        </ul>
+      <h3>4.1 Med familjemedlemmar du har bjudit in</h3>
+      <p>Barnets aktivitetsdata delas med familjemedlemmar som du uttryckligen har bjudit in. Du kan när som helst återkalla åtkomst.</p>
 
-        <h3>3.3 Kommunikation (Rättslig grund: Fullgörande av avtal och berättigat intresse)</h3>
-        <ul>
-            <li>Skicka verifieringsmejl</li>
-            <li>Skicka viktiga tjänstemeddelanden</li>
-            <li>Svara på dina supportförfrågningar</li>
-            <li>Skicka påminnelser om prenumeration</li>
-        </ul>
+      <h3>4.2 Med tjänsteleverantörer</h3>
+      <ul>
+        <li><strong>Railway:</strong> Hosting av backend och databas (USA) - GDPR-kompatibelt</li>
+        <li><strong>Stripe:</strong> Betalningshantering (USA/EU) - GDPR-kompatibelt</li>
+        <li><strong>Cloudinary:</strong> Bildlagring (EU-servrar) - GDPR-kompatibelt</li>
+        <li><strong>Resend:</strong> E-posttjänst (EU-servrar) - GDPR-kompatibelt</li>
+      </ul>
 
-        <h2>4. Delning av personuppgifter</h2>
+      <h2>5. Dina rättigheter enligt GDPR</h2>
 
-        <div class="success-box">
-            <strong>Vi säljer aldrig dina personuppgifter.</strong> Vi delar endast data i följande situationer:
-        </div>
+      <h3>5.1 Rätt till tillgång (Artikel 15)</h3>
+      <p>Få en kopia av alla personuppgifter vi har om dig.</p>
 
-        <h3>4.1 Med familjemedlemmar du har bjudit in</h3>
-        <ul>
-            <li>Barnets aktivitetsdata delas med familjemedlemmar som du uttryckligen har bjudit in</li>
-            <li>Familjemedlemmar kan se och lägga till aktiviteter för delade barn</li>
-            <li>Du kan när som helst återkalla åtkomst</li>
-        </ul>
+      <h3>5.2 Rätt till rättelse (Artikel 16)</h3>
+      <p>Korrigera felaktiga eller ofullständiga uppgifter.</p>
 
-        <h3>4.2 Med tjänsteleverantörer</h3>
-        <ul>
-            <li><strong>Railway:</strong> Hosting av backend och databas (USA) - GDPR-kompatibelt</li>
-            <li><strong>Stripe:</strong> Betalningshantering (USA/EU) - GDPR-kompatibelt</li>
-            <li><strong>Cloudinary:</strong> Bildlagring för profilbilder (EU-servrar) - GDPR-kompatibelt</li>
-            <li><strong>Resend:</strong> E-posttjänst för verifikation och meddelanden (EU-servrar) - GDPR-kompatibelt</li>
-        </ul>
-        <p>Alla tjänsteleverantörer är noggrant utvalda och har undertecknat databehandlingsavtal (DPA) samt följer GDPR.</p>
+      <h3>5.3 Rätt till radering (Artikel 17)</h3>
+      <p>Radera ditt konto och alla tillhörande data via Inställningar → Konto → Radera konto.</p>
 
-        <h2>5. Dataöverföring utanför EU</h2>
-        <p>Vissa av våra tjänsteleverantörer (Railway, Stripe) är baserade i USA. Dataöverföring till USA sker med följande skyddsåtgärder:</p>
-        <ul>
-            <li><strong>EU-US Data Privacy Framework:</strong> Stripe och Railway följer EU-US Data Privacy Framework</li>
-            <li><strong>Standard Contractual Clauses (SCC):</strong> Vi har ingått EU:s standardavtalsklausuler</li>
-            <li><strong>Tekniska säkerhetsåtgärder:</strong> All data krypteras vid överföring och lagring</li>
-        </ul>
+      <h3>5.4 Rätt till dataportabilitet (Artikel 20)</h3>
+      <p>Exportera dina data i maskinläsbart format via "Exportera data" i Inställningar.</p>
 
-        <h2>6. Hur länge vi lagrar dina data</h2>
-        <ul>
-            <li><strong>Kontodata:</strong> Så länge ditt konto är aktivt</li>
-            <li><strong>Aktivitetsdata:</strong> Tills du raderar dem eller avslutar ditt konto</li>
-            <li><strong>Betalningshistorik:</strong> 7 år (enligt svensk bokföringslag)</li>
-            <li><strong>Supportärenden:</strong> 2 år efter ärendet stängts</li>
-            <li><strong>Kraschloggar:</strong> 90 dagar</li>
-        </ul>
-        <p>När du raderar ditt konto raderas alla dina personuppgifter inom 30 dagar, med undantag för betalningshistorik som måste sparas enligt lag.</p>
+      <h3>5.5 Rätt att lämna klagomål</h3>
+      <p>Lämna klagomål till Integritetsskyddsmyndigheten (IMY):</p>
+      <ul>
+        <li>Webbplats: <a href="https://www.imy.se" target="_blank">https://www.imy.se</a></li>
+        <li>E-post: imy@imy.se</li>
+        <li>Telefon: 08-657 61 00</li>
+      </ul>
 
-        <h2>7. Dina rättigheter enligt GDPR</h2>
+      <h2>6. Säkerhet</h2>
+      <p>Vi använder branschstandarder för att skydda dina data:</p>
+      <ul>
+        <li><strong>Kryptering:</strong> HTTPS/TLS vid överföring</li>
+        <li><strong>Databaskryptering:</strong> PostgreSQL med kryptering i vila</li>
+        <li><strong>Lösenord:</strong> Bcrypt-hashing med salt</li>
+        <li><strong>JWT-tokens:</strong> Säkra autentiseringstokens</li>
+      </ul>
 
-        <div class="info-box">
-            <strong>Du har full kontroll över dina personuppgifter.</strong> Nedan beskrivs alla dina rättigheter enligt GDPR.
-        </div>
+      <h2>7. Kontakta oss</h2>
+      <ul>
+        <li><strong>E-post:</strong> babellosupport@gmail.com</li>
+        <li><strong>Webbplats:</strong> <a href="https://babelloapp.se">https://babelloapp.se</a></li>
+        <li><strong>Svarstid:</strong> Vi strävar efter att svara inom 48 timmar</li>
+      </ul>
 
-        <h3>7.1 Rätt till tillgång (Artikel 15)</h3>
-        <ul>
-            <li>Få en kopia av alla personuppgifter vi har om dig</li>
-            <li>Se hur vi använder dina data</li>
-        </ul>
-
-        <h3>7.2 Rätt till rättelse (Artikel 16)</h3>
-        <ul>
-            <li>Korrigera felaktiga eller ofullständiga uppgifter</li>
-            <li>Uppdatera din information i appen under Inställningar</li>
-        </ul>
-
-        <h3>7.3 Rätt till radering - "rätten att bli glömd" (Artikel 17)</h3>
-        <ul>
-            <li>Radera ditt konto och alla tillhörande data</li>
-            <li>Gå till Inställningar > Konto > Radera konto</li>
-        </ul>
-
-        <h3>7.4 Rätt till dataportabilitet (Artikel 20)</h3>
-        <ul>
-            <li>Exportera dina data i ett maskinläsbart format (JSON)</li>
-            <li>Överföra data till en annan tjänst</li>
-            <li>Använd "Exportera data" i Inställningar</li>
-        </ul>
-
-        <h3>7.5 Rätt att lämna klagomål</h3>
-        <p>Du kan lämna klagomål till Integritetsskyddsmyndigheten (IMY):</p>
-        <ul>
-            <li>Webbplats: <a href="https://www.imy.se" target="_blank">https://www.imy.se</a></li>
-            <li>E-post: imy@imy.se</li>
-            <li>Telefon: 08-657 61 00</li>
-        </ul>
-
-        <h2>8. Säkerhet</h2>
-
-        <h3>8.1 Tekniska säkerhetsåtgärder</h3>
-        <ul>
-            <li><strong>Kryptering:</strong> All data krypteras med HTTPS/TLS vid överföring</li>
-            <li><strong>Databaskryptering:</strong> PostgreSQL-databas med kryptering i vila</li>
-            <li><strong>Lösenord:</strong> Bcrypt-hashing med salt (BCrypt cost factor 10)</li>
-            <li><strong>JWT-tokens:</strong> Säkra autentiseringstokens med 30 dagars giltighetstid</li>
-            <li><strong>Refresh tokens:</strong> 5 års giltighetstid, roteras vid användning</li>
-        </ul>
-
-        <h3>8.2 Organisatoriska säkerhetsåtgärder</h3>
-        <ul>
-            <li>Begränsad tillgång till personuppgifter (endast utvecklare)</li>
-            <li>Regelbundna säkerhetsupdateringar</li>
-            <li>Säkerhetsgranskningar av kod</li>
-            <li>Incidenthanteringsplan</li>
-        </ul>
-
-        <p><strong>Vid dataintrång:</strong> Vi kommer att meddela dig och Integritetsskyddsmyndigheten inom 72 timmar enligt GDPR.</p>
-
-        <h2>9. Barn och minderåriga</h2>
-        <p>Babello är utformat för att föräldrar och vårdnadshavare ska spåra sina barns aktiviteter. Vi samlar inte medvetet in personuppgifter direkt från barn under 13 år.</p>
-        <ul>
-            <li>Endast föräldrar/vårdnadshavare ska skapa konton</li>
-            <li>Barninformation (namn, födelsedatum) registreras av föräldern</li>
-            <li>Barn ska inte använda appen självständigt</li>
-            <li>Om ett barn oavsiktligt har registrerat ett konto, kontakta oss för radering</li>
-        </ul>
-
-        <h2>10. Cookies och spårningsteknologier</h2>
-
-        <h3>10.1 I mobilappen</h3>
-        <p>Appen använder <strong>inga cookies</strong>. Vi använder istället:</p>
-        <ul>
-            <li><strong>AsyncStorage:</strong> Lokalt lagring för autentiseringstokens och offlinecache</li>
-            <li><strong>WebSocket:</strong> Realtidsanslutning för familjesynkronisering</li>
-        </ul>
-
-        <h3>10.2 På webbplatsen (babelloapp.se)</h3>
-        <p>Webbplatsen använder minimala cookies:</p>
-        <ul>
-            <li><strong>Inga analyticookies:</strong> Vi använder inte Google Analytics eller liknande</li>
-            <li><strong>Inga marknadsföringscookies</strong></li>
-            <li><strong>Endast tekniska cookies</strong> för grundläggande funktionalitet</li>
-        </ul>
-
-        <h2>11. Ändringar i integritetspolicyn</h2>
-        <p>Vi kan uppdatera denna integritetspolicy då och då. Vid väsentliga ändringar kommer vi att:</p>
-        <ul>
-            <li>Meddela dig via e-post</li>
-            <li>Visa ett meddelande i appen</li>
-            <li>Uppdatera "Senast uppdaterad"-datumet</li>
-        </ul>
-        <p>Din fortsatta användning av tjänsten efter ändringar utgör ditt godkännande av den nya policyn.</p>
-
-        <h2>12. Kontakta oss</h2>
-
-        <div class="contact-info">
-            <h3>För GDPR-relaterade förfrågningar (tillgång, radering, export):</h3>
-            <p><strong>E-post:</strong> <a href="mailto:babellosupport@gmail.com?subject=GDPR-förfrågan">babellosupport@gmail.com</a></p>
-            <p><strong>Ämnesrad:</strong> "GDPR-förfrågan"</p>
-            <p><strong>Svarstid:</strong> Vi svarar inom 30 dagar enligt lag</p>
-
-            <h3 style="margin-top: 24px;">För allmänna frågor:</h3>
-            <p><strong>E-post:</strong> <a href="mailto:babellosupport@gmail.com">babellosupport@gmail.com</a></p>
-            <p><strong>Webbplats:</strong> <a href="https://babelloapp.se">https://babelloapp.se</a></p>
-            <p><strong>Svarstid:</strong> Vi strävar efter att svara inom 48 timmar</p>
-        </div>
-
-        <h2>13. Juridisk information</h2>
-        <p>Denna integritetspolicy efterlever:</p>
-        <ul>
-            <li><strong>GDPR</strong> (EU:s dataskyddsförordning 2016/679)</li>
-            <li><strong>Dataskyddslagen (2018:218)</strong> (svensk implementering av GDPR)</li>
-            <li><strong>Lagen om elektronisk kommunikation (2022:482)</strong></li>
-            <li><strong>Swedish Consumer Law</strong> (Konsumentköplagen)</li>
-        </ul>
-        <p><strong>Tillämplig lag:</strong> Svensk lag<br>
-        <strong>Jurisdiktion:</strong> Svensk domstol<br>
-        <strong>Språk:</strong> Vid konflikt mellan språkversioner gäller den svenska versionen</p>
-
-        <div class="success-box" style="margin-top: 48px;">
-            <h3>Snabbguide: Hantera din integritet</h3>
-            <p><strong>Exportera dina data:</strong><br>
-            Inställningar > Integritet & Säkerhet > Exportera mina data</p>
-
-            <p><strong>Radera ditt konto:</strong><br>
-            Inställningar > Konto > Radera konto</p>
-
-            <p><strong>Hantera familjeåtkomst:</strong><br>
-            Inställningar > Familj > Se alla och återkalla åtkomst</p>
-        </div>
-
-        <p style="margin-top: 48px; text-align: center; color: #999; font-style: italic;">
-            Tack för att du litar på Babello med din familjs data. Vi tar vårt ansvar för din integritet på största allvar.
-        </p>
-
-        <div style="text-align: center;">
-            <a href="/" class="back-link">Tillbaka till startsidan</a>
-            <a href="/terms.html" class="back-link" style="margin-left: 16px; background: #667eea;">Läs användarvillkoren</a>
-        </div>
+      <p>För GDPR-förfrågningar använd ämnesrad: "GDPR-förfrågan" (vi svarar inom 30 dagar)</p>
     </div>
+  </div>
+
+  <!-- English Content -->
+  <div class="content" data-lang="en" id="content-en">
+    <div class="header">
+      <h1>Privacy Policy</h1>
+      <p>Babello - GDPR-compliant Privacy Policy</p>
+    </div>
+
+    <div class="container">
+      <p class="last-updated"><strong>Last updated:</strong> June 3, 2026</p>
+
+      <h2>1. Introduction</h2>
+      <p>Welcome to Babello. We value your privacy and are dedicated to protecting your personal data. This privacy policy describes how we collect, use, store and protect your personal data when you use our mobile application and services.</p>
+
+      <p><strong>Data Controller:</strong></p>
+      <ul>
+        <li>Babello</li>
+        <li>Email: babellosupport@gmail.com</li>
+        <li>Website: https://babelloapp.se</li>
+      </ul>
+
+      <h2>2. Personal Data We Collect</h2>
+
+      <h3>2.1 Information you provide directly</h3>
+      <ul>
+        <li><strong>Account information:</strong> Email address, name, password (encrypted)</li>
+        <li><strong>Child information:</strong> Child's name, date of birth, gender, profile picture (optional)</li>
+        <li><strong>Activity data:</strong> Sleep patterns, feeding, diaper changes, playtime, growth measurements, medicine, temperatures</li>
+        <li><strong>Family data:</strong> Information about family members you share access with</li>
+        <li><strong>Communication:</strong> Messages you send to our support</li>
+      </ul>
+
+      <h3>2.2 Information collected automatically</h3>
+      <ul>
+        <li><strong>Usage data:</strong> How you interact with the app, which features you use</li>
+        <li><strong>Device data:</strong> Device type, operating system, unique device identifier</li>
+        <li><strong>Technical data:</strong> IP address, browser type, time zone, language settings</li>
+        <li><strong>Debugging data:</strong> Crash reports and technical error logs</li>
+      </ul>
+
+      <h2>3. How We Use Your Personal Data</h2>
+
+      <h3>3.1 Provide the service</h3>
+      <ul>
+        <li>Create and manage your account</li>
+        <li>Save and synchronize your child's activity data</li>
+        <li>Enable family access and real-time synchronization</li>
+        <li>Provide growth tracking and statistics</li>
+      </ul>
+
+      <h3>3.2 Payment processing</h3>
+      <ul>
+        <li>Manage subscriptions and payments</li>
+        <li>Provide premium features</li>
+        <li>Send receipts and invoices</li>
+      </ul>
+
+      <h2>4. Sharing Personal Data</h2>
+      <p><strong>We never sell your personal data.</strong> We only share data in the following situations:</p>
+
+      <h3>4.1 With family members you have invited</h3>
+      <p>Your child's activity data is shared with family members you have explicitly invited. You can revoke access at any time.</p>
+
+      <h3>4.2 With service providers</h3>
+      <ul>
+        <li><strong>Railway:</strong> Backend and database hosting (USA) - GDPR compliant</li>
+        <li><strong>Stripe:</strong> Payment processing (USA/EU) - GDPR compliant</li>
+        <li><strong>Cloudinary:</strong> Image storage (EU servers) - GDPR compliant</li>
+        <li><strong>Resend:</strong> Email service (EU servers) - GDPR compliant</li>
+      </ul>
+
+      <h2>5. Your Rights Under GDPR</h2>
+
+      <h3>5.1 Right of access (Article 15)</h3>
+      <p>Get a copy of all personal data we have about you.</p>
+
+      <h3>5.2 Right to rectification (Article 16)</h3>
+      <p>Correct inaccurate or incomplete data.</p>
+
+      <h3>5.3 Right to erasure (Article 17)</h3>
+      <p>Delete your account and all associated data via Settings → Account → Delete account.</p>
+
+      <h3>5.4 Right to data portability (Article 20)</h3>
+      <p>Export your data in machine-readable format via "Export data" in Settings.</p>
+
+      <h3>5.5 Right to lodge a complaint</h3>
+      <p>Lodge a complaint with the Swedish Authority for Privacy Protection (IMY):</p>
+      <ul>
+        <li>Website: <a href="https://www.imy.se" target="_blank">https://www.imy.se</a></li>
+        <li>Email: imy@imy.se</li>
+        <li>Phone: +46 8-657 61 00</li>
+      </ul>
+
+      <h2>6. Security</h2>
+      <p>We use industry standards to protect your data:</p>
+      <ul>
+        <li><strong>Encryption:</strong> HTTPS/TLS during transmission</li>
+        <li><strong>Database encryption:</strong> PostgreSQL with encryption at rest</li>
+        <li><strong>Passwords:</strong> Bcrypt hashing with salt</li>
+        <li><strong>JWT tokens:</strong> Secure authentication tokens</li>
+      </ul>
+
+      <h2>7. Contact Us</h2>
+      <ul>
+        <li><strong>Email:</strong> babellosupport@gmail.com</li>
+        <li><strong>Website:</strong> <a href="https://babelloapp.se">https://babelloapp.se</a></li>
+        <li><strong>Response time:</strong> We aim to respond within 48 hours</li>
+      </ul>
+
+      <p>For GDPR requests use subject line: "GDPR Request" (we respond within 30 days)</p>
+    </div>
+  </div>
+
+  <script>
+    // Language configuration - easy to add more languages
+    const languages = {
+      'sv': { flag: '🇸🇪', name: 'Svenska' },
+      'en': { flag: '🇬🇧', name: 'English' },
+      // Add more languages here:
+      // 'es': { flag: '🇪🇸', name: 'Español' },
+      // 'de': { flag: '🇩🇪', name: 'Deutsch' },
+      // 'fr': { flag: '🇫🇷', name: 'Français' },
+    };
+
+    let currentLang = 'sv';
+
+    function getInitialLanguage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const langParam = urlParams.get('lang');
+
+      if (langParam && languages[langParam]) {
+        return langParam;
+      }
+
+      const browserLang = navigator.language || navigator.userLanguage;
+      return browserLang.startsWith('sv') ? 'sv' : 'en';
+    }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById('langDropdown');
+      dropdown.classList.toggle('open');
+    }
+
+    function selectLanguage(lang) {
+      if (!languages[lang]) return;
+
+      currentLang = lang;
+
+      // Hide all content
+      document.querySelectorAll('.content').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      // Show selected language content
+      const contentEl = document.getElementById('content-' + lang);
+      if (contentEl) {
+        contentEl.classList.add('active');
+      }
+
+      // Update current language display
+      document.getElementById('currentFlag').textContent = languages[lang].flag;
+      document.getElementById('currentLang').textContent = languages[lang].name;
+
+      // Update active state in dropdown
+      document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.remove('active');
+        if (opt.dataset.lang === lang) {
+          opt.classList.add('active');
+        }
+      });
+
+      // Close dropdown
+      document.getElementById('langDropdown').classList.remove('open');
+
+      // Update URL
+      const url = new URL(window.location);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url);
+
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      const dropdown = document.getElementById('langDropdown');
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+
+    // Initialize with detected language
+    const initialLang = getInitialLanguage();
+    selectLanguage(initialLang);
+  </script>
 </body>
 </html>
