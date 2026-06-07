@@ -88,6 +88,8 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             min-width: 180px;
+            max-height: 300px;
+            overflow-y: auto;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -414,9 +416,7 @@
 
         // Load saved language on page load
         const savedLang = localStorage.getItem('language') || 'sv';
-        if (savedLang === 'en') {
-            selectLanguage('en');
-        }
+        selectLanguage(savedLang);
     </script>
 </body>
 </html>
