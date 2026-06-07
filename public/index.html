@@ -271,19 +271,19 @@
         }
 
         /* Language content visibility - exclude dropdown options */
-        p[data-lang], div.subtitle[data-lang], div.feature-title[data-lang], div.feature-desc[data-lang], a[data-lang] {
+        [data-lang]:not(.lang-option) {
             display: none;
         }
 
-        p[data-lang="sv"], div.subtitle[data-lang="sv"], div.feature-title[data-lang="sv"], div.feature-desc[data-lang="sv"], a[data-lang="sv"] {
+        [data-lang="sv"]:not(.lang-option) {
             display: block;
         }
 
-        body.lang-en p[data-lang="sv"], body.lang-en div.subtitle[data-lang="sv"], body.lang-en div.feature-title[data-lang="sv"], body.lang-en div.feature-desc[data-lang="sv"], body.lang-en a[data-lang="sv"] {
+        body.lang-en [data-lang="sv"]:not(.lang-option) {
             display: none;
         }
 
-        body.lang-en p[data-lang="en"], body.lang-en div.subtitle[data-lang="en"], body.lang-en div.feature-title[data-lang="en"], body.lang-en div.feature-desc[data-lang="en"], body.lang-en a[data-lang="en"] {
+        body.lang-en [data-lang="en"]:not(.lang-option) {
             display: block;
         }
     </style>
@@ -298,7 +298,7 @@
                 <span class="lang-arrow">▼</span>
             </div>
             <div class="lang-options" id="langOptions">
-                <div class="lang-option active" data-lang="sv" onclick="selectLanguage('sv')">
+                <div class="lang-option" data-lang="sv" onclick="selectLanguage('sv')">
                     <span class="lang-flag">🇸🇪</span>
                     <span class="lang-name">Svenska</span>
                 </div>
