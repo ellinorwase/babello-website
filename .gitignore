@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Vercel CLI
+.vercel/
+
+# Node (in case tooling is added later)
+node_modules/
+
+# Editor
+.vscode/
+.idea/
