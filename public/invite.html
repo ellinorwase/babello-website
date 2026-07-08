@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbjudan - Babello</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 460px;
+            width: 100%;
+            margin: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            background: #9333ea;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        h1 {
+            color: #9333ea;
+            margin-bottom: 16px;
+            font-size: 26px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .child-name {
+            color: #9333ea;
+            font-weight: 700;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f4f6;
+            border-top-color: #9333ea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .btn {
+            display: block;
+            padding: 14px 28px;
+            background: #9333ea;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 12px auto 0;
+            max-width: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #9333ea;
+            border: 2px solid #9333ea;
+        }
+
+        .store-buttons {
+            margin-top: 24px;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #999;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        .message-box {
+            background: #f5f3ff;
+            border-left: 4px solid #9333ea;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            text-align: left;
+            font-style: italic;
+            color: #555;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 16px;
+            text-align: left;
+        }
+
+        #invite-view, #error-view {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">👶</div>
+
+        <!-- Loading state -->
+        <div id="loading-view">
+            <div class="loading"></div>
+            <p data-i18n="loading">Laddar inbjudan...</p>
+        </div>
+
+        <!-- Invite view -->
+        <div id="invite-view">
+            <h1 data-i18n="title">Du är inbjuden!</h1>
+            <p id="invite-text"></p>
+            <div id="message-box" class="message-box" style="display: none;"></div>
+
+            <div class="store-buttons">
+                <a href="#" id="open-app-btn" class="btn" data-i18n="openApp">Öppna i Babello</a>
+                <a href="#" id="appstore-btn" class="btn btn-secondary" data-i18n="downloadIos">Ladda ner för iPhone</a>
+                <a href="#" id="playstore-btn" class="btn btn-secondary" data-i18n="downloadAndroid">Ladda ner för Android</a>
+            </div>
+
+            <p class="hint" data-i18n="hint">Har du redan appen? Öppna den och logga in med den e-postadress inbjudan skickades till – inbjudan visas under Inställningar.</p>
+        </div>
+
+        <!-- Error view -->
+        <div id="error-view">
+            <h1 data-i18n="errorTitle">Ogiltig inbjudan</h1>
+            <div class="error-message">
+                <p id="error-text" data-i18n="errorMsg">Denna inbjudan är ogiltig eller har utgått. Be personen som bjöd in dig att skicka en ny inbjudan.</p>
+            </div>
+            <a href="/" class="btn" data-i18n="goHome">Till startsidan</a>
+        </div>
+    </div>
+
+    <script>
+        // Production backend API
+        const API_BASE = 'https://bt-be-production.up.railway.app';
+        // App scheme for deep-linking into the installed app
+        const APP_SCHEME = 'babello://invite/';
+        // TODO: replace with real store URLs once the app is published
+        const APP_STORE_URL = 'https://apps.apple.com/app/babello';
+        const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.ellinorwase.babello';
+
+        const I18N = {
+            sv: { loading: 'Laddar inbjudan...', title: 'Du är inbjuden!', invited: '{inviter} vill dela {child}s aktiviteter med dig i Babello.', openApp: 'Öppna i Babello', downloadIos: 'Ladda ner för iPhone', downloadAndroid: 'Ladda ner för Android', hint: 'Har du redan appen? Öppna den och logga in med den e-postadress inbjudan skickades till – inbjudan visas under Inställningar.', errorTitle: 'Ogiltig inbjudan', errorMsg: 'Denna inbjudan är ogiltig eller har utgått. Be personen som bjöd in dig att skicka en ny inbjudan.', expired: 'Denna inbjudan har utgått. Be personen som bjöd in dig att skicka en ny.', goHome: 'Till startsidan' },
+            en: { loading: 'Loading invitation...', title: 'You’re invited!', invited: '{inviter} wants to share {child}’s activities with you on Babello.', openApp: 'Open in Babello', downloadIos: 'Download for iPhone', downloadAndroid: 'Download for Android', hint: 'Already have the app? Open it and sign in with the email this invitation was sent to – the invite appears under Settings.', errorTitle: 'Invalid invitation', errorMsg: 'This invitation is invalid or has expired. Ask the person who invited you to send a new one.', expired: 'This invitation has expired. Ask the person who invited you to send a new one.', goHome: 'Go to homepage' },
+            de: { loading: 'Einladung wird geladen...', title: 'Du bist eingeladen!', invited: '{inviter} möchte {child}s Aktivitäten mit dir in Babello teilen.', openApp: 'In Babello öffnen', downloadIos: 'Für iPhone herunterladen', downloadAndroid: 'Für Android herunterladen', hint: 'Hast du die App schon? Öffne sie und melde dich mit der E-Mail-Adresse an, an die diese Einladung gesendet wurde – die Einladung erscheint unter Einstellungen.', errorTitle: 'Ungültige Einladung', errorMsg: 'Diese Einladung ist ungültig oder abgelaufen. Bitte die Person, die dich eingeladen hat, um eine neue.', expired: 'Diese Einladung ist abgelaufen. Bitte um eine neue.', goHome: 'Zur Startseite' },
+            fr: { loading: 'Chargement de l’invitation...', title: 'Vous êtes invité·e !', invited: '{inviter} souhaite partager les activités de {child} avec vous sur Babello.', openApp: 'Ouvrir dans Babello', downloadIos: 'Télécharger pour iPhone', downloadAndroid: 'Télécharger pour Android', hint: 'Vous avez déjà l’application ? Ouvrez-la et connectez-vous avec l’adresse e-mail à laquelle cette invitation a été envoyée – l’invitation apparaît dans les Réglages.', errorTitle: 'Invitation non valide', errorMsg: 'Cette invitation n’est pas valide ou a expiré. Demandez à la personne qui vous a invité·e d’en envoyer une nouvelle.', expired: 'Cette invitation a expiré. Demandez-en une nouvelle.', goHome: 'Aller à l’accueil' },
+            es: { loading: 'Cargando invitación...', title: '¡Estás invitado!', invited: '{inviter} quiere compartir las actividades de {child} contigo en Babello.', openApp: 'Abrir en Babello', downloadIos: 'Descargar para iPhone', downloadAndroid: 'Descargar para Android', hint: '¿Ya tienes la app? Ábrela e inicia sesión con el correo al que se envió esta invitación: la invitación aparece en Ajustes.', errorTitle: 'Invitación no válida', errorMsg: 'Esta invitación no es válida o ha caducado. Pide a quien te invitó que envíe una nueva.', expired: 'Esta invitación ha caducado. Pide una nueva.', goHome: 'Ir al inicio' }
+        };
+
+        const lang = (navigator.language || 'en').slice(0, 2);
+        const dict = I18N[lang] || I18N.en;
+        const t = (key) => dict[key] || I18N.en[key] || key;
+
+        document.documentElement.lang = I18N[lang] ? lang : 'en';
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+            el.textContent = t(el.getAttribute('data-i18n'));
+        });
+
+        // Token comes from the path: /invite/<token>
+        const parts = window.location.pathname.split('/').filter(Boolean);
+        const token = parts[parts.length - 1] === 'invite' ? null : parts[parts.length - 1];
+
+        const show = (id) => {
+            ['loading-view', 'invite-view', 'error-view'].forEach((v) => {
+                document.getElementById(v).style.display = v === id ? 'block' : 'none';
+            });
+        };
+
+        function showError(msgKey) {
+            document.getElementById('error-text').textContent = t(msgKey || 'errorMsg');
+            show('error-view');
+        }
+
+        async function loadInvite() {
+            if (!token) { showError('errorMsg'); return; }
+            try {
+                const res = await fetch(API_BASE + '/api/family/invites/' + encodeURIComponent(token) + '/details');
+                const data = await res.json().catch(() => ({}));
+
+                if (res.status === 410) { showError('expired'); return; }
+                if (!res.ok || !data.success || !data.invite) { showError('errorMsg'); return; }
+
+                const invite = data.invite;
+                const childName = (invite.child && invite.child.name) || 'ditt barn';
+                const inviterName = invite.inviter
+                    ? ((invite.inviter.firstName || '') + ' ' + (invite.inviter.lastName || '')).trim() || invite.inviter.email
+                    : 'En familjemedlem';
+
+                document.getElementById('invite-text').innerHTML = t('invited')
+                    .replace('{inviter}', escapeHtml(inviterName))
+                    .replace('{child}', '<span class="child-name">' + escapeHtml(childName) + '</span>');
+
+                if (invite.message) {
+                    const box = document.getElementById('message-box');
+                    box.textContent = '“' + invite.message + '”';
+                    box.style.display = 'block';
+                }
+
+                // Deep-link into the app (works if app installed via universal link too)
+                document.getElementById('open-app-btn').href = APP_SCHEME + encodeURIComponent(token);
+                document.getElementById('appstore-btn').href = APP_STORE_URL;
+                document.getElementById('playstore-btn').href = PLAY_STORE_URL;
+
+                show('invite-view');
+            } catch (err) {
+                showError('errorMsg');
+            }
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        loadInvite();
+    </script>
+</body>
+</html>

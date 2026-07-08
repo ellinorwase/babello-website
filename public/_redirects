@@ -1,0 +1,2 @@
+# Serve the invite landing page for /invite/<token> (token read from the path in JS)
+/invite/*   /invite.html   200
