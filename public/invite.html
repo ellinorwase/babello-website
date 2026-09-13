@@ -155,7 +155,8 @@
             <div class="store-buttons">
                 <a href="#" id="open-app-btn" class="btn" data-i18n="openApp">Öppna i Babello</a>
                 <a href="#" id="appstore-btn" class="btn btn-secondary" data-i18n="downloadIos">Ladda ner för iPhone</a>
-                <a href="#" id="playstore-btn" class="btn btn-secondary" data-i18n="downloadAndroid">Ladda ner för Android</a>
+                <!-- Android not published yet — hidden until Google Play launch. -->
+                <a href="#" id="playstore-btn" class="btn btn-secondary" data-i18n="downloadAndroid" style="display: none;">Ladda ner för Android</a>
             </div>
 
             <p class="hint" data-i18n="hint">Har du redan appen? Öppna den och logga in med den e-postadress inbjudan skickades till – inbjudan visas under Inställningar.</p>
@@ -176,8 +177,9 @@
         const API_BASE = 'https://bt-be-production.up.railway.app';
         // App scheme for deep-linking into the installed app
         const APP_SCHEME = 'babello://invite/';
-        // TODO: replace with real store URLs once the app is published
-        const APP_STORE_URL = 'https://apps.apple.com/app/babello';
+        // Real App Store URL (App ID 6807523412). Android/Google Play is not
+        // published yet, so its button is hidden below.
+        const APP_STORE_URL = 'https://apps.apple.com/app/id6807523412';
         const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.ellinorwase.babello';
 
         const I18N = {
